@@ -1,0 +1,29 @@
+Ex. 01  
+Primeiro insira o valor da Altura
+Insira o valor do Raio
+Multiplique o Raio por ele mesmo este será o Diâmetro
+Multiplique PI por Diâmetro e Altura este este será o Volume
+Apresente na tela o Volume 
+
+Ex.02
+Digite o valor de A
+Digite o valor de B
+Variável C será igual a A
+Variável A será igual a B
+Variável B será igual a C
+Mostre o resultado de A e B
+
+Ex.03
+Insira o comprimento que será igual a Comprimento
+Insira a altura que será igual Altura
+Insira a largura que será igual Largura
+Volume é igual Comprimento vezes Altura vezes Largura
+Mostrar na tela o Volume da Caixa
+
+Ex.SlideR
+Calcular perímetro e área e de um retângulo
+Entre a Altura
+Entre a Base 
+Área é igual a Altura vezes Base
+Perímetro é igual Altura vezes Altura mais Base vezes Base
+Mostre o Área e Perímetro na tela
