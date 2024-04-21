@@ -1,11 +1,17 @@
 ﻿int dia, mes, ano;
+string input;
 
 Console.WriteLine("Digite dia mes e ano, separados por um espaço");
-dia = int.Parse(Console.ReadLine());
+input = Console.ReadLine();
 
-mes = int.Parse(Console.ReadLine());
 
-ano = int.Parse(Console.ReadLine());
+string[] valores = input.Split(' ');
+
+dia = int.Parse(valores[0]);
+
+mes = int.Parse(valores[1]);
+
+ano = int.Parse(valores[2]);
 
 if (dia > 0 && dia < 32)
 {
@@ -13,20 +19,20 @@ if (dia > 0 && dia < 32)
     {
         if (ano >= 2013)
         {
-            Console.WriteLine("Data Valida");
-            Console.WriteLine($"{dia} {mes} {ano} valido");
+            Console.WriteLine("Data Válida");
+            Console.WriteLine($"{dia} {mes} {ano} válido");
         }
         else
         {
-            Console.WriteLine("Ano Invalido");
+            Console.WriteLine("Ano Inválido");
         }
     }
     else {
-        Console.WriteLine("Mês Invalido");
+        Console.WriteLine("Mês Inválido");
     }
 }
 else
 {
-    Console.WriteLine("Data Invalida");
+    Console.WriteLine("Data Inválida");
 }
 
