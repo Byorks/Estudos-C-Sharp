@@ -7,17 +7,22 @@ mes = int.Parse(Console.ReadLine());
 
 ano = int.Parse(Console.ReadLine());
 
-if (dia > 0 && dia < 32){
-    if (mes > 12 && mes < 0)
+if (dia > 0 && dia < 32)
+{
+    if (mes <= 12 && mes > 0)
     {
         if (ano >= 2013)
         {
             Console.WriteLine("Data Valida");
             Console.WriteLine($"{dia} {mes} {ano} valido");
         }
+        else
+        {
+            Console.WriteLine("Ano Invalido");
+        }
     }
     else {
-        Console.WriteLine("Data Invalida");
+        Console.WriteLine("Mês Invalido");
     }
 }
 else
