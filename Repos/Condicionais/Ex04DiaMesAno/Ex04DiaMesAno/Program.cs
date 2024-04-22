@@ -4,8 +4,8 @@ string input;
 Console.WriteLine("Digite dia mes e ano, separados por um espaço");
 input = Console.ReadLine();
 
-
-string[] valores = input.Split(' ');
+// Com o Split consegue separar a string, e colocar dentro de um array, o parametro de separação fica entre ( ).
+string[] valores = input.Split('/');
 
 dia = int.Parse(valores[0]);
 
@@ -17,10 +17,10 @@ if (dia > 0 && dia < 32)
 {
     if (mes <= 12 && mes > 0)
     {
-        if (ano >= 2013)
+        if (ano <= 2013 && ano > 1900)
         {
             Console.WriteLine("Data Válida");
-            Console.WriteLine($"{dia} {mes} {ano} válido");
+            Console.WriteLine($"{dia}/{mes}/{ano} válido");
         }
         else
         {
