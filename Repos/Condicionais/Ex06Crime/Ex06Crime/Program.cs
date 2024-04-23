@@ -1,5 +1,6 @@
 ﻿string per1,per2,per3,per4,per5;
 int sim = 0;
+String[] Perguntas; 
 
 Console.WriteLine("Responda as perguntas com sim ou não.");
 
