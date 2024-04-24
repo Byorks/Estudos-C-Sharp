@@ -44,8 +44,12 @@ else if (sim > 2 && sim <= 4) {
     Console.WriteLine("Você é considerado Cúmplice!");
 }
 
-else if (sim == 5) {
+else if (sim < 5) {
     Console.WriteLine("Você é Culpado!");
+}
+else if ( sim < 2)
+{
+    Console.WriteLine("Você é Inocente.");
 }
 
 Console.ReadKey();
