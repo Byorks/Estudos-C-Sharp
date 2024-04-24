@@ -3,6 +3,7 @@
 // Com auxilio da funcao .Split, separamos os itens em um array
 String[] vetor = Console.ReadLine().Split(' ');
 
+// Atribui cada valor do array a uma variável
 x = int.Parse(vetor[0]);
 y = int.Parse(vetor[1]);
 z = int.Parse(vetor[2]);
