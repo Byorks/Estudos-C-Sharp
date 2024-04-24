@@ -2,7 +2,7 @@
 String[] perguntas;
 
 Console.WriteLine("Responda as perguntas com sim ou não.");
-perguntas = new string[0]Console.ReadLine();
+perguntas = Console.ReadLine();
 
 Console.WriteLine("Telefonou para a vítima?");
 
