@@ -27,7 +27,15 @@ if  (sim == 2)
 {
     Console.WriteLine("Você é suspeito!");
 }
-else if (sim >= 3 || sim <= 4)
+else if (sim == 3 || sim == 4)
 {
     Console.WriteLine("Você é cumplice!");
+}
+else if (sim >= 5)
+{
+    Console.WriteLine("Você é culpado!");
+}
+else
+{
+    Console.WriteLine("Você é inocente");
 }
