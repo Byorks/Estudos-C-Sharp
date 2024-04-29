@@ -5,6 +5,8 @@ string input =  Console.ReadLine();
 
 string[] numeros = input.Split(' ');
 
+// string[] valores = Console.ReadLine().Split(' ');
+
 A = int.Parse(numeros[0]);
 
 B = int.Parse(numeros[1]);
