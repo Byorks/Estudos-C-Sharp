@@ -1,0 +1,5 @@
+B < C e D > A, (C + D) > (A + B), C e D positivos e A par
+
+
+
+Quero as perguntas em uma lista, o for fará rodar as perguntas, e o mesmo for guardará as respostas ]
