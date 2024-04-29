@@ -13,18 +13,31 @@ C = int.Parse(numeros[2]);
 
 D = int.Parse(numeros[3]);
 
-if (B < C && D > A)
-{
+if (B > C && D > A)
+{    
     int Ctemp = C + D;
     int Atemp = A + B; 
     if (Atemp < Ctemp)
     {
         if (C >= 0 && D >= 0) {
-            A = A % 2;
+            A %= 2;
             if (A == 0)
             {
                 Console.WriteLine("Deu certo");
+            } else {
+                Console.WriteLine("Ñão deu certo!");
             }
         }
+        else
+        {
+            Console.WriteLine("Não deu certo!");
+        }
+    }else
+    {
+        Console.WriteLine("Não deu certo!");
     }
+}
+else
+{
+    Console.WriteLine("Não deu certo!");
 }

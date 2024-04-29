@@ -1,6 +1,6 @@
 ﻿char input;
 
-Console.WriteLine("**** Esse programa diz se a entrada é vogal ou consoante");
+Console.WriteLine("**** Esse programa diz se a entrada é vogal ou consoante ****");
 input = char.Parse(Console.ReadLine());
 
 input = char.ToUpper(input);
