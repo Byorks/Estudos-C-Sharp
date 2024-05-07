@@ -39,3 +39,24 @@ else
 {
     Console.WriteLine("Você é inocente");
 }
+
+switch (sim)
+{
+
+
+    case 2: Console.WriteLine("Você é suspeito");
+        break;
+    case 3:
+        Console.WriteLine("Você é cumplice");
+        break;
+    case 4:
+        Console.WriteLine("Você é cumplice");
+        break;
+    case 5:
+        Console.WriteLine("Você é culpado!");
+        break;
+    default:
+        Console.WriteLine("Você é inocente");
+        break;
+
+}

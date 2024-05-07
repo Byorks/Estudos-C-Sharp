@@ -35,9 +35,9 @@ respostas[4] = Console.ReadLine();
 // O Equals entra no if
 /* 
  Foreach verifica cada entrada de uma list, indivídualmente
- Neste caso, coloquei para verificar cada sim respondido nas perguntas, de maneira que verifique e atribua a uma variável , contabilizando quantos "sims foram respondidos"
+ Neste caso, coloquei para verificar cada sim respondido nas perguntas, de maneira que verifique e atribua a uma variável , contabilizando quantos "sims" foram respondidos"
 
-Equal é unm método e StringComparison.OrdinalIgonoreCase é o parametro
+Equal é um método e StringComparison.OrdinalIgonoreCase é o parametro
 Serve para fazer comparações que não devem ser sensíveis ao case;
 Retorna valor booleano. 
 
