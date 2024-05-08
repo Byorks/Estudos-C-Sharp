@@ -1,0 +1,6 @@
+double notas100, notas50, notas20, notas10, notas5, notas2, notas1 = 0
+double valor, resto;
+
+
+Console.WriteLine("Digite o valor");
+valor = double.Parse(Console.ReadLine());
