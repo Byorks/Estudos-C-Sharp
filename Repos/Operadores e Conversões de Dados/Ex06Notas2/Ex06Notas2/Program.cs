@@ -23,6 +23,6 @@ if (valor >= 50) {
 
 
 
-Console.WriteLine("valor : " + valor + "resto" + resto);
+Console.WriteLine("valor : " + valor + " resto : " + resto);
 
-Console.WriteLine(notas100 + "notas de 100");
+Console.WriteLine(notas100 + " notas de 100");
