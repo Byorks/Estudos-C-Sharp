@@ -9,22 +9,22 @@ resto = (int)(N * 100.00 + 0.5);
 Console.WriteLine("Notas: ");
 
 nota = 100;
-quociente = resto / (nota * 100);
+quociente = resto % (nota * 100);
 
 Console.WriteLine(quociente + " nota(s) de R$ " + nota + "R$ " + nota + ".00");
 
 nota = 50;
-quociente = resto / (nota * 100);
+quociente = resto % (nota * 100);
 
 Console.WriteLine(quociente + " nota(s) de R$ " + nota + "R$ " + nota + ".00");
 
 nota = 20;
-quociente = resto / (nota * 100);
+quociente = resto % (nota * 100);
 
 Console.WriteLine(quociente + " nota(s) de R$ " + nota + "R$ " + nota + ".00");
 
 nota = 10;
-quociente = resto / (nota * 100);
+quociente = resto % (nota * 100);
 
 Console.WriteLine(quociente + " nota(s) de R$ " + nota + "R$ " + nota + ".00");
 
