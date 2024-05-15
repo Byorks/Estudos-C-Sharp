@@ -6,7 +6,12 @@ do
     numeros = int.Parse(Console.ReadLine());
 
     Console.WriteLine($"Você digitou : {numeros}");
-    soma += numeros;
+
+    if( numeros > 0 ){ 
+        soma += numeros;
+    }
+    Console.WriteLine(soma);
+
 } while (numeros >= 0);
 
-Console.WriteLine($"Soma = {soma}");
+Console.WriteLine($"Soma dos positivos = {soma}");
