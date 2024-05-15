@@ -4,9 +4,27 @@
 //correta "senha123". Em seguida, exiba uma
 //mensagem de boas-vindas.
 
+//bool senhaCorreta = false;
+
+//while (!senhaCorreta) {
+//    Console.WriteLine("Digite a senha: ");
+//    string senha = Console.ReadLine();
+
+//    if (senha == "senha123")
+//    {
+//        Console.WriteLine("Seja bem-vindo(a)");
+//        senhaCorreta = true;
+//    }
+//    else
+//    {
+//        Console.WriteLine("Senha invalida");
+//    }
+//}
+
 bool senhaCorreta = false;
 
-while (!senhaCorreta) {
+do
+{
     Console.WriteLine("Digite a senha: ");
     string senha = Console.ReadLine();
 
@@ -19,4 +37,5 @@ while (!senhaCorreta) {
     {
         Console.WriteLine("Senha invalida");
     }
-}
+
+} while (!senhaCorreta);
