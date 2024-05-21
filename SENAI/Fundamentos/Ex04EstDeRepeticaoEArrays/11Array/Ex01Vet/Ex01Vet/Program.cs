@@ -28,6 +28,7 @@ for (int i = 0; i < entradas; i++)
     numD[i] = double.Parse(numS[i], CultureInfo.InvariantCulture);
 }
 
+// Inicia as variáveis de posição e onde guardarei o maior número
 double maior = 0, pos = 0;
 for (int i = 0; i < entradas; i++)
 {
@@ -38,5 +39,5 @@ for (int i = 0; i < entradas; i++)
     }
 }
 
-Console.WriteLine("O maior da lista é " + maior.ToString("F1") + "\nA sua posição é " + pos);
+Console.WriteLine("O maior da lista é " + maior.ToString("F1", CultureInfo.InvariantCulture) + "\nA sua posição é " + pos);
 
