@@ -12,13 +12,22 @@ string[] vetStringA = new string[entradas];
 
 string[] vetStringB = new string[entradas];
 
-int[] vetIntA = new int[entradas];
+int [] vetIntA = new int[entradas];
 
-int[] vetIntB = new int[entradas];
+int [] vetIntB = new int[entradas];
 
 int [] somaVet = new int [entradas];
 
+
+// Inserir valores 
+Console.WriteLine("Insira os valores da Lista A");
+vetStringA = Console.ReadLine().Split(' ');
+
+Console.WriteLine("Insira os valores da Lista B");
+vetStringB = Console.ReadLine().Split(' ');
+
 // for para conversão e fazer a soma no mesmo
+Console.Write("A soma das listas é : ");
 for (int i = 0;i < entradas; i++)
 {
     vetIntA[i] = int.Parse(vetStringA[i]);
