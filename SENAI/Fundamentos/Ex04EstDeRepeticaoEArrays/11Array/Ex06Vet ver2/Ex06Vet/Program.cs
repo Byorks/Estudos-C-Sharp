@@ -5,6 +5,8 @@
 
 int entradas = int .Parse(Console.ReadLine());
 
+string[] entradasSplit = new string[2];
+
 string[] listaNomes = new string[entradas];
 
 string[] listaIdadeSt = new string[entradas];
@@ -14,11 +16,11 @@ int[] listaIdades = new int[entradas];
 // Entrada de Nomes e Idades
 for (int i = 0; i < entradas; i++)
 {
-    Console.WriteLine("Insira o nome");
-    listaNomes[i] = Console.ReadLine();
+    Console.WriteLine("Insira o nome e idade separados por espaco");
+    entradasSplit = Console.ReadLine().Split(' ');
 
-    Console.WriteLine("Insira a idade");
-    listaIdadeSt[i] = Console.ReadLine();
+    listaNomes[i] = entradasSplit[0]; 
+    listaIdadeSt[i] = entradasSplit[1];
 
 }
 
