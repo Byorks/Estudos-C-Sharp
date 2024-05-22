@@ -6,7 +6,6 @@
 // Imprima o vetor C gerado.
 
 Console.WriteLine("Insira o número de entradas");
-
 int entradas = int.Parse(Console.ReadLine());
 
 string[] vetStringA = new string[entradas];
