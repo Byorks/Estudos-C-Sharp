@@ -6,6 +6,9 @@
 // ✓a média de altura das mulheres
 // ✓o número de homens
 
+using System.Data.Common;
+using System.Globalization;
+
 int entradas = int.Parse(Console.ReadLine());
 
 string[] entradaAltSex = new string[entradas];
@@ -19,7 +22,7 @@ for (int i = 0; i < entradas; i++)
 {
     entradaAltSex = Console.ReadLine().Split(' ');
 
-    altura[i] = double.Parse(entradaAltSex[0]);
+    altura[i] = double.Parse(entradaAltSex[0], CultureInfo.InvariantCulture);
 
     sexo[i] = entradaAltSex[1];
 }
@@ -42,4 +45,22 @@ for (int i = 0; i < entradas; i++)
 
 }
 
-Console.WriteLine("Menor altura: " +)
+Console.WriteLine("Menor altura: " + menor);
+
+Console.WriteLine("Maior altura: " + maior);
+
+// media
+double mediaF = 0, numF = 0;
+for(int i = 0; i < entradas; i++){
+    if (sexo[i].ToLower() == "f") {
+        mediaF += altura[i];
+        numF++;
+    }
+}
+mediaF /= numF;
+
+Console.WriteLine("Media das alturas das mulheres : " + mediaF);
+
+// Numero de homens 
+
+Console.WriteLine(sexo.Length - numF);
