@@ -45,9 +45,9 @@ for (int i = 0; i < entradas; i++)
 
 }
 
-Console.WriteLine("Menor altura: " + menor);
+Console.WriteLine("Menor altura: " + menor.ToString(CultureInfo.InvariantCulture));
 
-Console.WriteLine("Maior altura: " + maior);
+Console.WriteLine("Maior altura: " + maior.ToString(CultureInfo.InvariantCulture));
 
 // media
 double mediaF = 0, numF = 0;
@@ -59,8 +59,8 @@ for(int i = 0; i < entradas; i++){
 }
 mediaF /= numF;
 
-Console.WriteLine("Media das alturas das mulheres : " + mediaF);
+Console.WriteLine("Media das alturas das mulheres : " + mediaF.ToString("F2", CultureInfo.InvariantCulture));
 
 // Numero de homens 
 
-Console.WriteLine(sexo.Length - numF);
+Console.WriteLine($"Número de homens : {sexo.Length - numF}");
