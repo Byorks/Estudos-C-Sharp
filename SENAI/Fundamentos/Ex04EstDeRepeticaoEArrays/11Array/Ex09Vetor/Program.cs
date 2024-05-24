@@ -63,7 +63,7 @@ for (int i = 0; i < entradas; i++)
 
 
 Console.WriteLine("Lucro abaixo de 10%: " + lucroM10 + "\n Lucro entre 10% e 20%: " + lucro1020 + "\n Lucro acima de 20%: " + lucroM20);
-Console.WriteLine("Valor total de compra: " + somaCompras, CultureInfo.InvariantCulture +"\n Valor total vendas: " + somaVendas, CultureInfo.InvariantCulture + "\n Lucro total: " + (somaVendas - somaCompras, CultureInfo.InvariantCulture));
+Console.WriteLine("Valor total de compra: " + somaCompras.ToString("F2", CultureInfo.InvariantCulture) +"\n Valor total vendas: " + somaVendas.ToString("F2", CultureInfo.InvariantCulture) + "\n Lucro total: " + (somaVendas - somaCompras).ToString("F2", CultureInfo.InvariantCulture));
 
 
 // Conta do % do lucro vai ficar = valor de venda  dividido por valor de compra * 100 - 100
