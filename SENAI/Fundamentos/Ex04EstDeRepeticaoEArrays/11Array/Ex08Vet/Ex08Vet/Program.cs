@@ -6,7 +6,6 @@
 // ✓a média de altura das mulheres
 // ✓o número de homens
 
-using System.Data.Common;
 using System.Globalization;
 
 int entradas = int.Parse(Console.ReadLine());
