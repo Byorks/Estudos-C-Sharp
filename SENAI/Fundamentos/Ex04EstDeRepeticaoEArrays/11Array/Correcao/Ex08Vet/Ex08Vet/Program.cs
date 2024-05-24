@@ -8,58 +8,58 @@
 
 using System.Globalization;
 
-int entradas = int.Parse(Console.ReadLine());
+int n = int.Parse(Console.ReadLine());
 
-string[] entradaAltSex = new string[entradas];
+double[] alturas = new double[n];
+char[] sexos = new char[n];
 
-string[] sexo = new string[entradas];
-
-double[] altura = new double[entradas];
-
-// dividir
-for (int i = 0; i < entradas; i++)
+for (int i = 0; i < n; i++)
 {
-    entradaAltSex = Console.ReadLine().Split(' ');
-
-    altura[i] = double.Parse(entradaAltSex[0], CultureInfo.InvariantCulture);
-
-    sexo[i] = entradaAltSex[1];
+    string[] valores = Console.ReadLine().Split(' ');
+    alturas[i] = int.Parse(valores[0], CultureInfo.InvariantCulture);
+    sexos[i] = char.Parse(valores[1]);
 }
 
-// maior e menor
-double maior = 0, menor = altura[0], posMa = 0, posMe = 0;
-for (int i = 0; i < entradas; i++)
+double menorAltura = alturas[0];
+for (int i = 0;i < n; i++)
 {
-    if (altura[i] > maior)
+    if (alturas[i] < menorAltura)
     {
-        maior = altura[i];
-        posMa = i;
-    }
-    if (altura[i] < menor)
-    {
-        menor = altura[i];
-
-        posMe = i;
-    }
-
-}
-
-Console.WriteLine("Menor altura: " + menor.ToString(CultureInfo.InvariantCulture));
-
-Console.WriteLine("Maior altura: " + maior.ToString(CultureInfo.InvariantCulture));
-
-// media
-double mediaF = 0, numF = 0;
-for(int i = 0; i < entradas; i++){
-    if (sexo[i].ToLower() == "f") {
-        mediaF += altura[i];
-        numF++;
+        menorAltura = alturas[i];
     }
 }
-mediaF /= numF;
+//double menorAltura = alturas.Min();
 
-Console.WriteLine("Media das alturas das mulheres : " + mediaF.ToString("F2", CultureInfo.InvariantCulture));
+double maiorAltura = alturas[0];
+for (int i = 0; i < n; i++)
+{
+    if (alturas[i] > maiorAltura)
+    {
+        maiorAltura = alturas[i];
+    }
+}
 
-// Numero de homens 
+//double maiorAltura = alturas.Max();
 
-Console.WriteLine($"Número de homens : {sexo.Length - numF}");
+double somaDasAlturas = 0.0;
+int contMulheres = 0;
+for (int i = 0; i < n; i++)
+{
+    if (sexos[i] == 'F' || sexos[i] == 'f')
+    {
+        somaDasAlturas += alturas[i];
+        contMulheres++;
+    }
+    if (contMulheres == 0)
+    {
+        Console.WriteLine("Nao ha nenhuma mulher entre as pessoas");
+    }
+    else
+    {
+        double media = somaDasAlturas / contMulheres;
+        Console.WriteLine("Media das alturas das mulheres = " + media.ToString("F2", CultureInfo.InvariantCulture));
+    }
+}
+
+int numeroDeHomens = n - contMulheres;
+Console.WriteLine("Numero de homens: " + numeroDeHomens);
