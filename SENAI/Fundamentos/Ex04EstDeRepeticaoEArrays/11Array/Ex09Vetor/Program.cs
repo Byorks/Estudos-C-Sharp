@@ -40,7 +40,7 @@ for (int i = 0; i < entradas; i++)
     compra[i] = double.Parse(itemCompraVenda[1], CultureInfo.InvariantCulture);
     vendas[i] = double.Parse(itemCompraVenda[2], CultureInfo.InvariantCulture);
     
-    if ( vendas[i] / compra[i] * 100 - 100 > 10 )
+    if ( vendas[i] / compra[i] * 100 - 100 < 10 )
     {
         Console.WriteLine("Venda com menos de 10% de lucro");
         lucroM10++;
@@ -63,7 +63,7 @@ for (int i = 0; i < entradas; i++)
 
 
 Console.WriteLine("Lucro abaixo de 10%: " + lucroM10 + "\n Lucro entre 10% e 20%: " + lucro1020 + "\n Lucro acima de 20%: " + lucroM20);
-Console.WriteLine("Valor total de compra: " + somaCompras +"\n Valor total vendas: " + somaVendas + "\n Lucro total: " + (somaCompras - somaVendas));
+Console.WriteLine("Valor total de compra: " + somaCompras, CultureInfo.InvariantCulture +"\n Valor total vendas: " + somaVendas, CultureInfo.InvariantCulture + "\n Lucro total: " + (somaVendas - somaCompras, CultureInfo.InvariantCulture));
 
 
 // Conta do % do lucro vai ficar = valor de venda  dividido por valor de compra * 100 - 100
