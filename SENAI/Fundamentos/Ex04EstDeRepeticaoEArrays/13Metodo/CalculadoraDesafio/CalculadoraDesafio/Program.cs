@@ -124,7 +124,9 @@ while (menu)
             break;
 
 
+
         case "sair":
+    //Se digitar "sair" ou similar, sair do programa
             menu = false;
             break;
 
@@ -140,5 +142,3 @@ while (menu)
 // criar jeito de limpar depois da execucao
 
 //Ter While para voltar ao menu
-
-//Se digitar "sair" ou similar, sair do programa
