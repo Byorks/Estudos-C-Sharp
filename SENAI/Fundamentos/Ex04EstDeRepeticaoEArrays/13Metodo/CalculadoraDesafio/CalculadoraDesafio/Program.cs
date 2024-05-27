@@ -68,7 +68,6 @@ while (menu)
             Console.Clear();
             break;
 
-
         case "2":
             Console.WriteLine("Você escolheu subtração");
 
@@ -129,12 +128,15 @@ while (menu)
             Console.Clear();
             break;
 
-
-
         case "sair":
     //Se digitar "sair" ou similar, sair do programa
             menu = false;
             break;
+
+        default:
+            Console.WriteLine("Insira uma entrada valida. ^_^");
+            break;
+
     }
 }
 
