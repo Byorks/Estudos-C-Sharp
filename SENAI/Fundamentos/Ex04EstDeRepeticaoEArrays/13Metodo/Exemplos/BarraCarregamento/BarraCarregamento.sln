@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarraCarregamento", "BarraCarregamento\BarraCarregamento.csproj", "{1928E15E-B5AB-4B7A-93C2-5C96AA67E212}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1928E15E-B5AB-4B7A-93C2-5C96AA67E212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1928E15E-B5AB-4B7A-93C2-5C96AA67E212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1928E15E-B5AB-4B7A-93C2-5C96AA67E212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1928E15E-B5AB-4B7A-93C2-5C96AA67E212}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37DF1CF7-6646-42DF-A3AB-642607030945}
+	EndGlobalSection
+EndGlobal
