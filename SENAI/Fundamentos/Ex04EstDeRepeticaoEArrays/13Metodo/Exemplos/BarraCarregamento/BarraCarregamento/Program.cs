@@ -10,3 +10,4 @@
     }
     Console.ResetColor();
 }
+BarraCarregamento("Van", 800, 3);
