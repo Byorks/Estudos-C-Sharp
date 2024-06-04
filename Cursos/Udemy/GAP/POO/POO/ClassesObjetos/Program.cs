@@ -19,7 +19,7 @@ OutraClasse outra2 = outra;
 */
 #endregion
 
-// Atribuindo Caracteristicas
+// Atributos das Classes / Atribuindo Caracteristicas
 
 // atribuindo propriedades mencionando o Atributo
 Pessoa pessoa1 = new Pessoa();
@@ -32,19 +32,21 @@ Pessoa pessoa2 = new Pessoa()
 {
     nome = "Diogo",
     sobrenome = "Botton",
-    anoNascimento = 2001
+    anoNascimento = 2000
 
 };
 
 Console.WriteLine("Pessoa 1: " + pessoa1.nome);
 Console.WriteLine("Pessoa 1: " + pessoa1.sobrenome);
 Console.WriteLine("Pessoa 1: " + pessoa1.anoNascimento);
+pessoa1.Cumprimentar();
 
 Console.WriteLine();
 
 Console.WriteLine("Pessoa 2: " + pessoa2.nome);
 Console.WriteLine("Pessoa 2: " + pessoa2.sobrenome);
 Console.WriteLine("Pessoa 2: " + pessoa2.anoNascimento);
+pessoa2.Cumprimentar();
 
 Console.ReadKey();
 
