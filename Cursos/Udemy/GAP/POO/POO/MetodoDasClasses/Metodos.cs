@@ -27,5 +27,22 @@ namespace MetodoDasClasses
         {
             Console.WriteLine("Meu nome é " + nome + " e tenho " + idade + " anos");
         }
+
+        // Passagem de parâmetros por valor
+        public void AumentarValor(int valor)
+        {
+            valor += 10;
+            Console.WriteLine("Valor final (por valor) é: " + valor);
+        }
+
+        // Passagem de parâmetro por referência 
+        // Não mais pegamos o valor emprestado e somamos, agora a variável inserida será alterada com um novo valor ou alteração, não é mais uma copia onde
+        // a variável original se mantem inalterada
+        public void AumentarRef(ref int valor)
+        {
+            valor += 10;
+            Console.WriteLine("Valor final (por referência) é: " + valor);
+        }
     }
-}
+        
+}   
