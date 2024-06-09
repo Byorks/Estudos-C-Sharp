@@ -2,8 +2,10 @@
 {
     public class Cliente
     {
+        // Método construtor
         public Cliente(string cpf_cnpj, string nome, string endereco, string rg_ie, char tipo, float valor, float valor_imposto, float total)
-        {
+        {   
+            // This serve para pegar uma propriedade da própria classe
             this.cpf_cnpj = cpf_cnpj;
             this.nome = nome;
             this.endereco = endereco;
@@ -14,6 +16,7 @@
             this.total = total;
         }
 
+        // 
         public string cpf_cnpj { get; set; }
         // atalho prop
         public string nome { get; set; }

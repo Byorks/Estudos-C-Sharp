@@ -43,6 +43,31 @@ namespace MetodoDasClasses
             valor += 10;
             Console.WriteLine("Valor final (por referência) é: " + valor);
         }
+        // Métodos com retorno de valores
+        // retorno de string, nesse caso
+        public string MontaNome( string nome, string sobrenome )
+        {
+            //string nomeCompleto = nome + " " + sobrenome;
+            // Obrigatório ter retorno
+            // Para simplificar o código, podemos ir diretamente, sem precisar criar a variável
+            // Porque ele já retorna o resultado da expressão
+            return nome + " " + sobrenome;
+        }
+
+        // O retorno não está ligado ao tipo do parâmetro, e podemos criar métodos sem parametros que retornam tipos variádos
+        public int CodigoChar ( char caractere )
+        {   // conversão explicita é desnecessária
+            //int codigo = (int)caractere;
+            // Neste caso já estamos convertendo implícitamente 
+            return caractere;
+        }
+        
+        // Criando método que retorna double, mas não tem parámetros
+        public double ValorPi()
+        {
+            return 3.1415;
+        }
+                 
     }
         
 }   
