@@ -2,7 +2,12 @@
 {
     public class Cliente
     {
+
+        public Cliente()
+        {
+        }
         // Método construtor
+        // Serve para montar o objeto
         public Cliente(string cpf_cnpj, string nome, string endereco, string rg_ie, char tipo, float valor, float valor_imposto, float total)
         {   
             // This serve para pegar uma propriedade da própria classe
