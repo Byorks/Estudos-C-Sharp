@@ -54,7 +54,7 @@ if (tipo == "f")
     Console.WriteLine("Nome .............: " + pj.Nome);
     Console.WriteLine("Endereço..........: " + pj.Endereco);
     Console.WriteLine("CNPJ..............: " + pj.Cnpj);
-    Console.WriteLine("RG................: " + pj.Ie);
+    Console.WriteLine("IE................: " + pj.Ie);
     Console.WriteLine("Valor da Compra ..: " + pj.Valor.ToString("C"));
     Console.WriteLine("Imposto...........: " + pj.ValorImposto.ToString("C"));
     Console.WriteLine("Total a pagar.....: " + pj.Total.ToString("C"));
