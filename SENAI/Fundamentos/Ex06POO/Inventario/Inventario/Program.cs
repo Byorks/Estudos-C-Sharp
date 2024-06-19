@@ -2,7 +2,7 @@
 using Inventario.Services;
 using Inventario.Utils;
 
-InventarioServices inventarioService = new InventarioServices();
+InventarioService inventarioService = new InventarioService();
 
 bool continuar = true;
 
@@ -51,6 +51,47 @@ while (continuar)
 
     if (continuar)
     {
+        Console.WriteLine("Pressione qualquer tecla para continuar...");
+        Console.ReadKey();
+    }
+}
 
+void AtualizarItem(InventarioService inventarioService)
+{
+    Console.Write("\nDigite o ID do item a ser atualizado");
+    int id = Convert.ToInt32(Console.ReadLine());
+    Item item = inventarioService.BuscarPorId(id);
+
+    // Se não tiver resultado na busca de ID
+    if (item != null)
+    {   // Se ele for da classe Produto
+        if (item is Produto produto)
+        {
+            produto.Atualizar();
+        }else if (item is Servico servico)
+        {
+            servico.Atualizar();
+        }
+
+    }else
+    {
+        Console.WriteLine("Item não encontrado, tente novamente...");
+    }
+}
+
+void RemoverItem (InventarioService inventarioService)
+{
+    Console.Write("\nDigite o ID do item a ser removido");
+    int id = Convert.ToInt32(Console.ReadLine());
+
+    Item item = inventarioService.BuscarPorId(id);
+    
+    if (item != null)
+    {
+        inventarioService.RemoverItem(item);
+        Console.WriteLine("Item removido com sucesso.");
+    }else
+    {
+        Console.WriteLine("item não encontrado, tente novamente...");
     }
 }

@@ -9,7 +9,7 @@ namespace Inventario.Utils
 {
     public static class DisplayHelper
     {
-        public static void MostrarInventario(InventarioServices inventarioServices)
+        public static void MostrarInventario(InventarioService inventarioServices)
         {
             var itens = inventarioServices.ListarItens();
             foreach (var item in itens )

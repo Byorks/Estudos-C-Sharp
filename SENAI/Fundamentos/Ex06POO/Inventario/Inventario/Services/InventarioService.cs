@@ -8,7 +8,7 @@ namespace Inventario.Services
 {
     using Models;
 
-    public class InventarioServices
+    public class InventarioService
     {
         // Nome da pasta/classe no plural e métodos no singular, boas práticas
 
@@ -16,7 +16,7 @@ namespace Inventario.Services
         private List<Item> _itens;
         
         //ctor + tab atalho para montar método construtor
-        public InventarioServices()
+        public InventarioService()
         {
             // Aqui serve justamente para criar uma lista
             // Se não tivesse isso, precisariamos criar manualmente uma lista
