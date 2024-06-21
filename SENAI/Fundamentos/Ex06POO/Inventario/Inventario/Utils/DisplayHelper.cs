@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Inventario.Utils
 {
     public static class DisplayHelper
-    {
+    {   
         public static void MostrarInventario(InventarioService inventarioServices)
         {
             var itens = inventarioServices.ListarItens();

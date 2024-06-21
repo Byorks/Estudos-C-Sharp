@@ -9,7 +9,7 @@ bool continuar = true;
 while (continuar)
 {
     Console.Clear();
-    Console.WriteLine(" --------------- Sistema de Inventário do Holandinha --------------- ");
+    Console.WriteLine(" --------------- Sistema de Inventário do Vanessinha  --------------- ");
     Console.WriteLine(" -------------------------------- ^_^ --------------------------------");
     Console.WriteLine("1. Adicionar Produto ................................................:");
     Console.WriteLine("2. Adicionar Serviço ................................................:");

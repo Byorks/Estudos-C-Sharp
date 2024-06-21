@@ -14,6 +14,8 @@ namespace Inventario.Services
 
         // Criando lista do tipo objeto Item 
         private List<Item> _itens;
+
+        int qtd = 0;
         
         //ctor + tab atalho para montar método construtor
         public InventarioService()
@@ -25,8 +27,9 @@ namespace Inventario.Services
 
         public void AdicionarItem(Item item)
         {
+            item.Id = qtd++;
             // Vai adicionar dentro da lista
-            _itens.Add(item);
+            _itens.Add(item);            
         }
 
         // Lendo a lista, só devolver a mesma
