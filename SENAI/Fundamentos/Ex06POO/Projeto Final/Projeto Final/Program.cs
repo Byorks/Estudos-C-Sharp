@@ -18,7 +18,8 @@ while (menu)
     switch (opcao)
     {
         case 1:
-            Cliente.AdicionarCliente();
+            Cliente cliente = Cliente.CriarCliente();
+            clienteService.AdicionarCliente(cliente);
             break;
         case 2:
             clienteService.ListarClientes();

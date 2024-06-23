@@ -48,7 +48,10 @@ namespace Projeto_Final.Models
             return cliente;
         }
 
-        
+        public void MostrarDetalhesCliente()
+        {
+            Console.WriteLine($"ID: {Id}");
+        }
 
     }
 }
