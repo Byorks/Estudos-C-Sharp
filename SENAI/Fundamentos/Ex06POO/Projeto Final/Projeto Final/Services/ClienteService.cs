@@ -10,18 +10,32 @@ namespace Projeto_Final.Services
     public class ClienteService
     {
         // Criando lista do Tipo Clientes com nome _clientes
-        List<Cliente> _clientes = new List<Cliente>();
+        private List<Cliente> _clientes;
+
+        public ClienteService()
+        {
+            _clientes = new List<Cliente>();
+        }
 
         // Criando Cliente
-        public Cliente Cliente();
+        public void AdicionarCliente(Cliente cliente)
+        {
+            _clientes.Add(cliente);
+        }   
 
         // Atualizando Cliente
 
-        // Deletando CLiente
 
+        // Deletando CLiente
+        public void RemoverCliente(Cliente cliente)
+        {
+            _clientes.Remove(cliente);
+        }
         // Listando Clientes
-            
-        
+        public List<Cliente> ListarClientes()
+        {
+            return _clientes;
+        }
 
     }
 }

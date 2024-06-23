@@ -13,15 +13,15 @@ namespace Projeto_Final.Models
 
         // Criar método e depois alterar para o que preciso, que é especificar se é cliente ou funcionário
         // Adicionar Pessoa
-        public abstract Pessoa AdicionarPessoa();
-        // Remover Pessoa
-        public abstract void RemoverPessoa();
+        //public abstract Pessoa AdicionarPessoa();
+        //// Remover Pessoa
+        //public abstract void RemoverPessoa();
 
-        // Atualizar Pessoa 
-        public abstract Pessoa AtualizarPessoa();
+        //// Atualizar Pessoa 
+        //public abstract Pessoa AtualizarPessoa();
 
-        // Listar Pessoa
-        public abstract void ListarPessoa();
+        //// Listar Pessoa
+        //public abstract void ListarPessoa();
 
 
     }

@@ -14,7 +14,7 @@ namespace Projeto_Final.Models
         public int DataTransacao { get; set; }
         public int HoraTransacao { get; set; }
         // Lista dos produtos comprados
-        public int ProdutosComprado { get; set; }
+        public int ProdutosComprados { get; set; }
         public double ValorTotal { get; set; }
 
 
