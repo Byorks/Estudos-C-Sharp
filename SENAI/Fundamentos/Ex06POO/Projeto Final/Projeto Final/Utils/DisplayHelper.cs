@@ -20,5 +20,15 @@ namespace Projeto_Final.Utils
                 cliente.MostrarDetalhesCliente();
             }
         }    
+
+        public static void MostrarFuncionarios(FuncionarioService funcionarioService)
+        {
+            List<Funcionario> listaFuncionarios = funcionarioService.ListarFuncionarios();
+
+            foreach ( Funcionario funcionario in listaFuncionarios)
+            {
+                funcionario.MostrarDetalhes();
+            }
+        }
     }
 }

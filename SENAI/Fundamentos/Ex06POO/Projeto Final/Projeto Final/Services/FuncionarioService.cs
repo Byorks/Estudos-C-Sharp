@@ -9,7 +9,7 @@ namespace Projeto_Final.Services
     using Projeto_Final.Models;
     internal class FuncionarioService
     {   
-        List<Funcionario> _listaFuncionarios;
+        private List<Funcionario> _listaFuncionarios;
 
         // Método Construtor
         // Serve para iniciarlizar a classe com algumas especificaçoes que eu coloco, no caso, criar uma lista
@@ -17,5 +17,18 @@ namespace Projeto_Final.Services
         {
             List<Funcionario> _listaFuncionarios = new List<Funcionario>();    
         }
+
+        // Adicionar Funcionário
+        public void AdicionarFuncionario(Funcionario funcionario)
+        {
+            _listaFuncionarios.Add(funcionario);
+        }
+
+        // Mostrar detalhes do funcionário
+        public List<Funcionario> ListarFuncionarios()
+        {
+           return _listaFuncionarios;
+        }
+
     }
 }

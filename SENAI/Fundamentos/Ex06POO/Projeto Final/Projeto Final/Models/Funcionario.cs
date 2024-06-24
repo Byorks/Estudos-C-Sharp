@@ -10,7 +10,7 @@ namespace Projeto_Final.Models
     {
         public string Cargo { get; set; }
         public string NumeroRegistro { get; set; }
-        public double HorarioTrabalho { get; set; }
+        public string HorarioTrabalho { get; set; }
 
         public static Funcionario CriarFuncionario()
         {   
@@ -28,9 +28,14 @@ namespace Projeto_Final.Models
             funcionario.NumeroRegistro = Console.ReadLine();
 
             Console.WriteLine("Insira o horário de trabalho: ");
-            funcionario.HorarioTrabalho = Convert.ToDouble(Console.ReadLine());
+            funcionario.HorarioTrabalho = Console.ReadLine();
 
             return funcionario;
+        }
+
+        public void MostrarDetalhes()
+        {
+            Console.WriteLine($"ID: {Id}, Nome: {Nome}, Cargo: {Cargo}, Num. Registro: {NumeroRegistro}, Jornada de trabalho: {HorarioTrabalho}");
         }
     }
 }
