@@ -18,7 +18,7 @@ namespace Projeto_Final.Models
         //public abstract void RemoverPessoa();
 
         //// Atualizar Pessoa 
-        //public abstract Pessoa AtualizarPessoa();
+        public abstract void Atualizar();
 
         //// Listar Pessoa
         //public abstract void ListarPessoa();

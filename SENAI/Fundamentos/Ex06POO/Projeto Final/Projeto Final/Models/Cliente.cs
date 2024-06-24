@@ -49,10 +49,37 @@ namespace Projeto_Final.Models
             return cliente;
         }
 
+        public override void Atualizar()
+        {
+            Console.WriteLine("Atualizando Cliente");
+
+            Console.WriteLine("Digite o novo nome: ");
+            Nome = Console.ReadLine();
+
+            Console.WriteLine("Digite o novo CPF: ");
+            CPF = Console.ReadLine();
+
+            Console.WriteLine("Digite a nova data de nascimento separado por /: ");
+            string[] dataNascimento = new string[3];
+            dataNascimento = Console.ReadLine().Split('/');
+
+            DiaNascimento = int.Parse(dataNascimento[0]);
+            MesNascimento = int.Parse(dataNascimento[1]);
+            AnoNascimento = int.Parse(dataNascimento[2]);
+
+            Console.WriteLine("Digite o novo endereço: ");
+            Endereco = Console.ReadLine();
+
+            Console.WriteLine("Digite o novo número de telefone: ");
+            Telefone = Console.ReadLine();
+
+        }
+
         public void MostrarDetalhesCliente()
         {
             Console.WriteLine($"ID: {Id}, Nome: {Nome}, CPF: {CPF}, Data de Nascimento {DiaNascimento}/{MesNascimento}/{AnoNascimento}, Endereco: {Endereco}, Telefone: {Telefone};");
         }
+
 
     }
 }

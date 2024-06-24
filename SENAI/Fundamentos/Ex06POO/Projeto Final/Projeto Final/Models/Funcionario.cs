@@ -37,5 +37,22 @@ namespace Projeto_Final.Models
         {
             Console.WriteLine($"ID: {Id}, Nome: {Nome}, Cargo: {Cargo}, Num. Registro: {NumeroRegistro}, Jornada de trabalho: {HorarioTrabalho}");
         }
+
+        public override void Atualizar()
+        {
+            Console.WriteLine("Atualização Funcionário");
+
+            Console.WriteLine("Insira o novo nome: ");
+            Nome = Console.ReadLine();
+
+            Console.WriteLine("Insira o novo cargo: ");
+            Cargo = Console.ReadLine();
+
+            Console.WriteLine("Insira o novo número de registro do funcionário: ");
+            NumeroRegistro = Console.ReadLine();
+
+            Console.WriteLine("Insira o novo horário de trabalho: ");
+            HorarioTrabalho = Console.ReadLine();
+        }
     }
 }

@@ -9,6 +9,8 @@ namespace Projeto_Final.Services
     using Models;
     public class ClienteService
     {
+        // ClienteService gerencia a lita de clientes
+
         // Criando lista do Tipo Clientes com nome _clientes
         private List<Cliente> _clientes;
 
@@ -25,9 +27,6 @@ namespace Projeto_Final.Services
             _clientes.Add(cliente);
         }   
 
-        // Atualizando Cliente
-
-
         // Deletando CLiente
         public void RemoverCliente(Cliente cliente)
         {
@@ -38,6 +37,11 @@ namespace Projeto_Final.Services
         {
             return _clientes;
         }
-
+        
+        public Cliente BuscarPorId(int id)
+        {   
+            // Método que vai procurar o primeiro a corresponder ao valor inserido no parametro, se não localizar o Id retorna null
+            return _clientes.FirstOrDefault(i => i.Id == id);
+        }
     }
 }
