@@ -12,10 +12,12 @@ namespace Projeto_Final.Utils
     {
         public static void MostrarClientes(ClienteService clienteService)
         {
+            // A _listaclientes está sendo recebida pela listaClientes
             List<Cliente> listaClientes = clienteService.ListarClientes();
+            // Para cada "cliente" na lista, excutaremos um método, que fará escrever os detalhes na tela
             foreach (Cliente cliente in listaClientes)
             {
-
+                cliente.MostrarDetalhesCliente();
             }
         }    
     }

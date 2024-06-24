@@ -17,6 +17,7 @@ namespace Projeto_Final.Models
         public int AnoNascimento { get; set; }
         public string CPF { get; set; }
 
+        
         static public Cliente CriarCliente()
         {
             Cliente cliente = new Cliente();
@@ -50,7 +51,7 @@ namespace Projeto_Final.Models
 
         public void MostrarDetalhesCliente()
         {
-            Console.WriteLine($"ID: {Id}");
+            Console.WriteLine($"ID: {Id}, Nome: {Nome}, CPF: {CPF}, Data de Nascimento {DiaNascimento}/{MesNascimento}/{AnoNascimento}, Endereco: {Endereco}, Telefone: {Telefone};");
         }
 
     }

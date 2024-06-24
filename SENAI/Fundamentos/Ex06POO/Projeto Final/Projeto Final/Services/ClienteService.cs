@@ -12,6 +12,7 @@ namespace Projeto_Final.Services
         // Criando lista do Tipo Clientes com nome _clientes
         private List<Cliente> _clientes;
 
+        private int qtd = 0;
         public ClienteService()
         {
             _clientes = new List<Cliente>();
@@ -20,6 +21,7 @@ namespace Projeto_Final.Services
         // Criando Cliente
         public void AdicionarCliente(Cliente cliente)
         {
+            cliente.Id = qtd++;
             _clientes.Add(cliente);
         }   
 

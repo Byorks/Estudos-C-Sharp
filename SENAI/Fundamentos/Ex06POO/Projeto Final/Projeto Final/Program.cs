@@ -1,6 +1,8 @@
 ﻿using Projeto_Final.Services;
 using Projeto_Final.Models;
+using Projeto_Final.Utils;
 
+// Instanciado a lista de clientes
 ClienteService clienteService = new ClienteService();
 
 Console.WriteLine("Mercadinho da Vanessa");
@@ -22,10 +24,13 @@ while (menu)
             clienteService.AdicionarCliente(cliente);
             break;
         case 2:
-            clienteService.ListarClientes();
+            DisplayHelper.MostrarClientes(clienteService);
             break;
         case 7:
             menu = false;
+            break;
+        default:
+            Console.WriteLine("Opção inválida! Escolha novamente :D ");
             break;
     }
 }
