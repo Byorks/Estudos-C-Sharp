@@ -7,7 +7,7 @@ using Projeto_Final.Models;
 
 namespace Projeto_Final.Services
 {
-    internal class ProdutoService
+    public class ProdutoService
     {
         private List<Produto> _produtos;
 

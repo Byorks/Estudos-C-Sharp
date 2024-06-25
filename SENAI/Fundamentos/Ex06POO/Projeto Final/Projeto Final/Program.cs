@@ -6,6 +6,8 @@ using Projeto_Final.Utils;
 ClienteService clienteService = new ClienteService();
 FuncionarioService funcionarioService = new FuncionarioService();
 ProdutoService produtoService = new ProdutoService();
+TransacaoService transacaoService = new TransacaoService(); 
+CarrinhoService carrinhoService = new CarrinhoService();
 
 Console.WriteLine("Mercadinho da Vanessa");
 
@@ -26,6 +28,7 @@ while (menu)
     Console.WriteLine("10 - Deletar produto");
     Console.WriteLine("11 - Atualizar produto");
     Console.WriteLine("12 - Listar produtos");
+    Console.WriteLine("13 - Iniciar transação");
     Console.WriteLine("15 - Limpar console");
     Console.WriteLine("16 - Sair do Programa");
 
@@ -108,6 +111,45 @@ while (menu)
             break;
         case 12: // Listar Produtos    
             DisplayHelper.MostrarProdutos(produtoService);
+            break;
+        case 13:
+            Console.Clear();
+            Console.WriteLine("InicializaNdo Compras");
+            Console.WriteLine("Quem é o funcionário que inicializara a venda?");
+            Console.WriteLine("Lista funcionários");
+            // Mostra lista Funcionários
+            DisplayHelper.MostrarFuncionarios(funcionarioService);
+            Console.WriteLine("Selecione o Id do funcionário selecionado");
+            int vendedorId = Convert.ToInt16(Console.ReadLine());
+            Funcionario funcVendedor = funcionarioService.BuscarPorId(vendedorId);
+
+            Console.ReadLine();
+            
+            Console.WriteLine($"Venda iniciada...\nOlá {funcVendedor.Nome}!");
+            Console.WriteLine("Selecione o Cliente: ");
+
+            // Se não tiver cliente, terei que usar um ID genérico?
+            if (clienteService == null)
+            {
+                Console.WriteLine("Lista de Clientes vazia, gostaria de iniciar um cadastro?");
+                Console.WriteLine("Digite (s)Sim ou (n)Não");
+                string resposta = Console.ReadLine();
+                if (resposta == "s")
+                {
+                    clienteService.AdicionarCliente(Cliente.CriarCliente());
+                }
+                else
+                {
+                    Console.WriteLine("Cliente Genérico inicializado");                   
+                }
+ 
+            }
+            DisplayHelper.MostrarClientes(clienteService);
+            Console.WriteLine("Digite o Id do cliente selecionado.");
+            int IdComprador = Convert.ToInt16(Console.ReadLine());
+
+            Console.WriteLine("Bem vindo a nossa loja (^o^)!");
+            Transacao.IniciaCarrinho(vendedorId, IdComprador, produtoService, carrinhoService);
             break;
         case 15:
             Console.WriteLine("Pressione qualquer tecla para limpar...");
