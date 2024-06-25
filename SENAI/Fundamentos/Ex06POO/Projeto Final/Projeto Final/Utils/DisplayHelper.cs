@@ -31,5 +31,14 @@ namespace Projeto_Final.Utils
                 funcionario.MostrarDetalhes();
             }
         }
+
+        public static void MostrarProdutos (ProdutoService produtoService)
+        {
+            List<Produto> listaProdutos = produtoService.ListarProdutos();
+            foreach ( Produto produto in listaProdutos)
+            {
+                produto.MostrarDetalhes();
+            }
+        }
     }
 }

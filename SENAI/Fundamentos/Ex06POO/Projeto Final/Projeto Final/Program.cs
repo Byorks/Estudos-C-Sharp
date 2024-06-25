@@ -2,9 +2,10 @@
 using Projeto_Final.Models;
 using Projeto_Final.Utils;
 
-// Instanciado a lista de clientes
+// Instanciado as listas: Cliente, Funcionario, Produto, Transacoes
 ClienteService clienteService = new ClienteService();
 FuncionarioService funcionarioService = new FuncionarioService();
+ProdutoService produtoService = new ProdutoService();
 
 Console.WriteLine("Mercadinho da Vanessa");
 
@@ -20,8 +21,14 @@ while (menu)
     Console.WriteLine("5 - Criar funcionario");
     Console.WriteLine("6 - Deletar funcionario");
     Console.WriteLine("7 - Atualizar funcionario");
-    Console.WriteLine("8 - Listar funcionarios");
-    Console.WriteLine("10 - Sair do Programa");
+    Console.WriteLine("8 - Listar funcionarios");    
+    Console.WriteLine("9 - Criar produto");
+    Console.WriteLine("10 - Deletar produto");
+    Console.WriteLine("11 - Atualizar produto");
+    Console.WriteLine("12 - Listar produtos");
+    Console.WriteLine("15 - Limpar console");
+    Console.WriteLine("16 - Sair do Programa");
+
 
     string opcao;
     int opcaoNum, id;
@@ -84,7 +91,31 @@ while (menu)
         case 8:
             DisplayHelper.MostrarFuncionarios(funcionarioService);
             break;
-        case 10:
+        case 9: // Criar Produto - Ficar atenta com essa declaração de variável
+            Produto produto = Produto.CriarProduto();
+            produtoService.AdicionarProduto(produto);
+            break;
+        case 10: // Deletar Produto
+            Console.WriteLine("Digite o ID do produto que gostaria de deletar");
+            id = Convert.ToInt32(Console.ReadLine());
+            produtoService.RemoverProduto(produtoService.BuscarPorId(id)) ;
+            break;
+        case 11: // Atualizar Produto
+            Console.WriteLine("Digite o ID do produto que gostaria de atualizar");
+            id = Convert.ToInt32(Console.ReadLine());
+            // Tentar ler da direita para a esquerda as vezes ajuda
+            produtoService.BuscarPorId(id).Atualizar();
+            break;
+        case 12: // Listar Produtos    
+            DisplayHelper.MostrarProdutos(produtoService);
+            break;
+        case 15:
+            Console.WriteLine("Pressione qualquer tecla para limpar...");
+            Console.ReadKey();
+            Console.ReadKey();
+            Console.Clear();
+            break;
+        case 16:
             menu = false;
             break;
         default:

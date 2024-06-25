@@ -25,19 +25,19 @@ namespace Projeto_Final.Services
         {
             cliente.Id = qtd++;
             _clientes.Add(cliente);
-        }   
-
-        // Deletando CLiente
-        public void RemoverCliente(Cliente cliente)
-        {
-            _clientes.Remove(cliente);
         }
         // Listando Clientes
         public List<Cliente> ListarClientes()
         {
             return _clientes;
         }
-        
+
+        // Deletando CLiente
+        public void RemoverCliente(Cliente cliente)
+        {
+            _clientes.Remove(cliente);
+        }
+
         public Cliente BuscarPorId(int id)
         {   
             // Método que vai procurar o primeiro a corresponder ao valor inserido no parametro, se não localizar o Id retorna null
