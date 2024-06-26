@@ -55,7 +55,7 @@ namespace Projeto_Final.Utils
             List<Produto> listaCarrinho = carrinhoService.ListarCarrinho();
             foreach (Produto produto in listaCarrinho)
             {
-                produto.MostrarDetalhes();
+                produto.MostrarCarrinho();
             }
         }
     }

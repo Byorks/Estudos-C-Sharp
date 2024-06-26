@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 namespace Projeto_Final.Models
 {
     public class Produto
-    {   
+    {
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Categoria { get; set; }
         public int QuantidadeEstoque { get; set; }
+        public int QuantidadeCarrinho { get; set; }
         public int DiaValidade{ get; set; }
         public int MesValidade{ get; set; }
         public int AnoValidade{ get; set; }
@@ -50,6 +51,12 @@ namespace Projeto_Final.Models
         public void MostrarDetalhes()
         {
             Console.WriteLine($"ID: {Id}, Nome: {Nome}, Categoria {Categoria}, Quantidade em estoque: {QuantidadeEstoque}, DataValidade: {DiaValidade}/{MesValidade}/{AnoValidade}, Preço {Preco:C}");
+        }
+        public string MostrarCarrinho()
+        {
+            string carrito = $"ID: {Id}\nNome: {Nome}\nCategoria {Categoria}\nQuantidade no Carrinho: {QuantidadeCarrinho}\nDataValidade: {DiaValidade}/{MesValidade}/{AnoValidade}\nPreço {Preco:C}\n";
+            Console.WriteLine(carrito);
+            return carrito;
         }
 
         public void Atualizar()

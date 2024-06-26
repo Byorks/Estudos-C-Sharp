@@ -39,6 +39,7 @@ namespace Projeto_Final.Models
             double calcQtd = 0;
             double ValorTotal = 0;
             bool selecaoProdutos = true;
+
             while(selecaoProdutos)
             {   
                 Console.WriteLine("\nLista de Produtos disponiveis:");
@@ -50,9 +51,12 @@ namespace Projeto_Final.Models
 
                 // Aqui está copiando o produto da lita produtos
                 Produto prodSelecionado = produtoService.BuscarPorId(idProd);
+
                 Console.WriteLine($"Quantidade Disponível em estoque: {prodSelecionado.QuantidadeEstoque}");
                 Console.WriteLine("Digite a quantia desejada: ");
                 int quantidade = int.Parse(Console.ReadLine());
+
+                prodSelecionado.QuantidadeCarrinho = quantidade;
 
                 Produto.AtualizarQuantidade(produtoService.BuscarPorId(idProd), quantidade);
                 
@@ -71,15 +75,22 @@ namespace Projeto_Final.Models
 
                 Console.WriteLine($"Valor total {ValorTotal}:");
 
-                Console.WriteLine("\nGostaria de encerrar a operacao? (s)Sim");
+                Console.WriteLine("\nGostaria de encerrar a operacao? (s)Sim (n)Não");
+                
+                int cont = 1;
                 
                 if (Console.ReadLine() == "s")
                 {
+                    // usar var carrito aqui
+                    string[] ProdutosVenda = new string[cont];
+                    foreach ()
+
                     selecaoProdutos = false;
                 }
+               
                 // Cuidado com esse clear
                 Console.Clear();
-                // falta contabilizar a quantidade
+                cont++;
             }
 
             // Selecionar os produtos de interesse, 1 por 1?
@@ -91,7 +102,7 @@ namespace Projeto_Final.Models
             transacao.ValorTotal = ValorTotal;
 
             // Verificar horário da trasação
-            transacao.HoraTransacao = DateTime.Now.ToString("h:mm:ss tt");
+            transacao.HoraTransacao = DateTime.Now.ToString("HH:mm:ss tt");
 
             // Verificar Data da transação
             transacao.DataTransacao = DateTime.Now.ToString("d/MM/yyyy");
@@ -99,17 +110,16 @@ namespace Projeto_Final.Models
             Console.WriteLine("Venda realizada com sucesso!");
             return transacao;
         }
-        // CRUD para transações de Vendas
 
         public void MostrarDetalhes()
         {
-            Console.WriteLine($"Id: {Id}, Id Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total R$ {ValorTotal:C}");
+            Console.WriteLine($"Id: {Id}, Id Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total {ValorTotal:C}");
         }
 
-        // Não implementado
-        public void MostrarDetalhesCarriho()
+        public void MostrarDetalhesCarrinho()
         {
-            Console.WriteLine($"Id: {Id}, Id Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total R$ {ValorTotal:C}");
+            string carrinho = $"Id: {Id}, Id Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total R$ {ValorTotal:C}";
+            Console.WriteLine(carrinho);
 
         }
     }

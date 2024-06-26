@@ -8,6 +8,7 @@ FuncionarioService funcionarioService = new FuncionarioService();
 ProdutoService produtoService = new ProdutoService();
 TransacaoService transacaoService = new TransacaoService(); 
 CarrinhoService carrinhoService = new CarrinhoService();
+VendasService vendasService = new VendasService();
 
 Console.WriteLine("Mercadinho da Byork ^-^");
 
@@ -35,12 +36,10 @@ while (menu)
     Console.WriteLine("17 - Limpar console");
     Console.WriteLine("18 - Sair do Programa\n");
 
-
     string opcao;
     int opcaoNum, id;
     opcao = Console.ReadLine();
     bool opcaoVerificacao = Int32.TryParse(opcao, out opcaoNum);
-
 
     while (!opcaoVerificacao)
     {
@@ -124,7 +123,7 @@ while (menu)
         case 13:
             Console.Clear();
             Console.WriteLine("Inicializando Compras");
-            Console.WriteLine("Quem é o funcionário que fará a venda?\n");
+            Console.WriteLine("Quem é o funcionário que realizará a venda?\n");
             Console.WriteLine("Lista funcionários\n");
             // Mostra lista Funcionários
             DisplayHelper.MostrarFuncionarios(funcionarioService);
@@ -159,6 +158,9 @@ while (menu)
 
             Console.WriteLine("Bem vindo(a) a nossa loja (^o^)!");
             transacaoService.AdicionarTransacao(Transacao.IniciaCarrinho(vendedorId, IdComprador, produtoService, carrinhoService));
+
+            // Passar o conteúdo de carrinho para vendas
+
             // Limpa o carrinho
             carrinhoService.ListarCarrinho().Clear();
             break;
