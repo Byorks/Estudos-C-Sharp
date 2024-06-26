@@ -21,7 +21,7 @@ namespace Projeto_Final.Models
 
         public static Transacao IniciaCarrinho(int idFun, int idCliente, ProdutoService produtoService, CarrinhoService carrinhoService)
         {
-            Console.WriteLine("Venda Iniciada");
+            Console.WriteLine("\n--- Venda Iniciada ---\n");
 
             Transacao transacao = new Transacao();
             // Selecionar o produto entre a lista de produtos
@@ -41,11 +41,11 @@ namespace Projeto_Final.Models
             bool selecaoProdutos = true;
             while(selecaoProdutos)
             {   
-                Console.WriteLine("\nLista de Produtos disponiveis");
+                Console.WriteLine("\nLista de Produtos disponiveis:");
                 DisplayHelper.MostrarProdutos(produtoService);
                 Console.WriteLine("\nSelecione os produtos do seu interesse.");
                 // Selecina o id do produto selecionado e a quantia
-                Console.WriteLine("Digite o Id do produto do seu interesse");
+                Console.WriteLine("Digite o Id do produto desejado para adicionar ao carrinho");
                 int idProd = int .Parse(Console.ReadLine());
 
                 // Aqui está copiando o produto da lita produtos
@@ -64,8 +64,10 @@ namespace Projeto_Final.Models
                 // Se tiver, adiciona/ copia o produto inteiro a lista CarrinhoService, porém, devo subtrair a quantidade selecionada
 
                 // Mostrar a lista de produtos selecionados
-                Console.WriteLine("\n Lista de Produtos Selecionados\n");
+                Console.WriteLine("\n--- Lista de Produtos no Carrinho ---\n");
                 DisplayHelper.MostrarCarrinho(carrinhoService);
+
+                Console.WriteLine($"Valor total {ValorTotal}:");
 
                 Console.WriteLine("\nGostaria de encerrar a operacao? (s)Sim");
                 
@@ -99,7 +101,7 @@ namespace Projeto_Final.Models
 
         public void MostrarDetalhes()
         {
-            Console.WriteLine($"Id: {Id}, Id Funcionario: {IdFuncionario}, Id cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total: {ValorTotal:C}");
+            Console.WriteLine($"Id: {Id}, Id Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total R$ {ValorTotal:C}");
         }
     }
 }

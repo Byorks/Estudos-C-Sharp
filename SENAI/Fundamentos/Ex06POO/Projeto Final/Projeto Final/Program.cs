@@ -41,6 +41,7 @@ while (menu)
     opcao = Console.ReadLine();
     bool opcaoVerificacao = Int32.TryParse(opcao, out opcaoNum);
 
+
     while (!opcaoVerificacao)
     {
         Console.WriteLine("Por favor, digite um número");
@@ -49,6 +50,8 @@ while (menu)
         opcaoVerificacao = Int32.TryParse(opcao, out opcaoNum);
     }
 
+    Console.Clear();
+  
     switch (opcaoNum)
     {
         case 1:
@@ -73,6 +76,7 @@ while (menu)
             // Erro por retornar null encontrado
             break;
         case 4:
+            Console.WriteLine("Clientes Cadastrados");
             DisplayHelper.MostrarClientes(clienteService);
             break;
         case 5:
@@ -95,6 +99,7 @@ while (menu)
             }
             break;
         case 8:
+            Console.WriteLine("Funcionários Cadastrados");
             DisplayHelper.MostrarFuncionarios(funcionarioService);
             break;
         case 9: // Criar Produto - Ficar atenta com essa declaração de variável
@@ -112,7 +117,8 @@ while (menu)
             // Tentar ler da direita para a esquerda as vezes ajuda
             produtoService.BuscarPorId(id).Atualizar();
             break;
-        case 12: // Listar Produtos    
+        case 12: // Listar Produtos
+            Console.WriteLine("Produtos Cadastrados");
             DisplayHelper.MostrarProdutos(produtoService);
             break;
         case 13:
@@ -122,7 +128,7 @@ while (menu)
             Console.WriteLine("Lista funcionários\n");
             // Mostra lista Funcionários
             DisplayHelper.MostrarFuncionarios(funcionarioService);
-            Console.Write("Selecione o Id do funcionário selecionado: ");
+            Console.Write("\nSelecione o Id do funcionário selecionado: ");
             int vendedorId = Convert.ToInt16(Console.ReadLine());
             Funcionario funcVendedor = funcionarioService.BuscarPorId(vendedorId);
 
@@ -132,7 +138,7 @@ while (menu)
             Console.WriteLine("Selecione o Cliente: ");
 
             // Se não tiver cliente, terei que usar um ID genérico?
-            if (clienteService == null)
+            if (clienteService.ListarClientes == null)
             {
                 Console.WriteLine("Lista de Clientes vazia, gostaria de iniciar um cadastro?");
                 Console.WriteLine("Digite (s)Sim ou (n)Não");
@@ -148,10 +154,10 @@ while (menu)
  
             }
             DisplayHelper.MostrarClientes(clienteService);
-            Console.WriteLine("Digite o Id do cliente selecionado.");
+            Console.Write("\nDigite o Id do cliente selecionado: \n");
             int IdComprador = Convert.ToInt16(Console.ReadLine());
 
-            Console.WriteLine("Bem vindo a nossa loja (^o^)!");
+            Console.WriteLine("Bem vindo(a) a nossa loja (^o^)!");
             transacaoService.AdicionarTransacao(Transacao.IniciaCarrinho(vendedorId, IdComprador, produtoService, carrinhoService));
             // Limpa o carrinho
             carrinhoService.ListarCarrinho().Clear();
@@ -161,9 +167,7 @@ while (menu)
         case 15: 
             break;
         case 16: // Listar transacoes
-            Console.WriteLine("Limpar console..."); 
-            Console.ReadKey();
-            Console.Clear();
+            Console.WriteLine("Histórico de Transações");
             DisplayHelper.MostrarTransacoes(transacaoService);
             break;
         case 17:

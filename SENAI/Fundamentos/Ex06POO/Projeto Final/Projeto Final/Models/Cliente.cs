@@ -45,7 +45,7 @@ namespace Projeto_Final.Models
             Console.WriteLine("Informe um número de telefone: ");
             cliente.Telefone = Console.ReadLine();
 
-            Console.ReadKey();
+            Console.WriteLine("Cliente criado com sucesso!");
             return cliente;
         }
 
