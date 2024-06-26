@@ -14,6 +14,22 @@ namespace Projeto_Final.Services
             _transacoes = new List<Transacao>();
         }
 
+        int qtd = 0;
+        public void AdicionarTransacao(Transacao transacao)
+        {
+            transacao.Id = qtd++;
+            _transacoes.Add(transacao);
+        }
+
+        public List<Transacao> ListarTransacoes()
+        {
+            return _transacoes;
+        }
+
+        public void RemoverTransacao(Transacao transacao)
+        {
+            _transacoes.Remove(transacao);
+        }
     }
 
     public class CarrinhoService

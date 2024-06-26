@@ -9,28 +9,31 @@ ProdutoService produtoService = new ProdutoService();
 TransacaoService transacaoService = new TransacaoService(); 
 CarrinhoService carrinhoService = new CarrinhoService();
 
-Console.WriteLine("Mercadinho da Vanessa");
+Console.WriteLine("Mercadinho da Byork ^-^");
 
 
 bool menu = true;
 while (menu)
 {
-    Console.WriteLine("Selecione a opção desejada");
+    Console.WriteLine("\nSelecione a opção desejada\n");
     Console.WriteLine("1 - Criar cliente");
     Console.WriteLine("2 - Deletar cliente");
     Console.WriteLine("3 - Atualizar cliente");
-    Console.WriteLine("4 - Listar clientes");
+    Console.WriteLine("4 - Listar clientes\n");
     Console.WriteLine("5 - Criar funcionario");
     Console.WriteLine("6 - Deletar funcionario");
     Console.WriteLine("7 - Atualizar funcionario");
-    Console.WriteLine("8 - Listar funcionarios");    
+    Console.WriteLine("8 - Listar funcionarios\n");    
     Console.WriteLine("9 - Criar produto");
     Console.WriteLine("10 - Deletar produto");
     Console.WriteLine("11 - Atualizar produto");
-    Console.WriteLine("12 - Listar produtos");
+    Console.WriteLine("12 - Listar produtos\n");
     Console.WriteLine("13 - Iniciar transação");
-    Console.WriteLine("15 - Limpar console");
-    Console.WriteLine("16 - Sair do Programa");
+    Console.WriteLine("14 - Deletar transação");
+    Console.WriteLine("15 - Atualizar transação");
+    Console.WriteLine("16 - Listar transações\n");
+    Console.WriteLine("17 - Limpar console");
+    Console.WriteLine("18 - Sair do Programa\n");
 
 
     string opcao;
@@ -104,7 +107,7 @@ while (menu)
             produtoService.RemoverProduto(produtoService.BuscarPorId(id)) ;
             break;
         case 11: // Atualizar Produto
-            Console.WriteLine("Digite o ID do produto que gostaria de atualizar");
+            Console.Write("Digite o ID do produto que gostaria de atualizar: ");
             id = Convert.ToInt32(Console.ReadLine());
             // Tentar ler da direita para a esquerda as vezes ajuda
             produtoService.BuscarPorId(id).Atualizar();
@@ -114,16 +117,16 @@ while (menu)
             break;
         case 13:
             Console.Clear();
-            Console.WriteLine("InicializaNdo Compras");
-            Console.WriteLine("Quem é o funcionário que inicializara a venda?");
-            Console.WriteLine("Lista funcionários");
+            Console.WriteLine("Inicializando Compras");
+            Console.WriteLine("Quem é o funcionário que inicializara a venda?\n");
+            Console.WriteLine("Lista funcionários\n");
             // Mostra lista Funcionários
             DisplayHelper.MostrarFuncionarios(funcionarioService);
-            Console.WriteLine("Selecione o Id do funcionário selecionado");
+            Console.Write("Selecione o Id do funcionário selecionado: ");
             int vendedorId = Convert.ToInt16(Console.ReadLine());
             Funcionario funcVendedor = funcionarioService.BuscarPorId(vendedorId);
 
-            Console.ReadLine();
+            Console.WriteLine();
             
             Console.WriteLine($"Venda iniciada...\nOlá {funcVendedor.Nome}!");
             Console.WriteLine("Selecione o Cliente: ");
@@ -149,15 +152,26 @@ while (menu)
             int IdComprador = Convert.ToInt16(Console.ReadLine());
 
             Console.WriteLine("Bem vindo a nossa loja (^o^)!");
-            Transacao.IniciaCarrinho(vendedorId, IdComprador, produtoService, carrinhoService);
+            transacaoService.AdicionarTransacao(Transacao.IniciaCarrinho(vendedorId, IdComprador, produtoService, carrinhoService));
+            // Limpa o carrinho
+            carrinhoService.ListarCarrinho().Clear();
             break;
-        case 15:
-            Console.WriteLine("Pressione qualquer tecla para limpar...");
+        case 14:
+            break;
+        case 15: 
+            break;
+        case 16: // Listar transacoes
+            Console.WriteLine("Limpar console..."); 
             Console.ReadKey();
+            Console.Clear();
+            DisplayHelper.MostrarTransacoes(transacaoService);
+            break;
+        case 17:
+            Console.WriteLine("Pressione qualquer tecla para limpar...");
             Console.ReadKey();
             Console.Clear();
             break;
-        case 16:
+        case 18:
             menu = false;
             break;
         default:

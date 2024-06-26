@@ -10,7 +10,7 @@ namespace Projeto_Final.Utils
 {
     internal static class DisplayHelper
     {
-        // Buscar forma de unificar o método, possível sol. overload?
+        // Buscar forma de unificar o método, possível sol. overload? Generics?
         public static void MostrarClientes(ClienteService clienteService)
         {
             // A _listaclientes está sendo recebida pela listaClientes
@@ -36,6 +36,24 @@ namespace Projeto_Final.Utils
         {
             List<Produto> listaProdutos = produtoService.ListarProdutos();
             foreach ( Produto produto in listaProdutos)
+            {
+                produto.MostrarDetalhes();
+            }
+        }
+
+        public static void MostrarTransacoes (TransacaoService transacaoService )
+        {
+            List<Transacao> listaTransacoes = transacaoService.ListarTransacoes();
+            foreach (Transacao transacao in listaTransacoes)
+            {
+                transacao.MostrarDetalhes();
+            }
+        }
+
+        public static void MostrarCarrinho (CarrinhoService carrinhoService ) 
+        { 
+            List<Produto> listaCarrinho = carrinhoService.ListarCarrinho();
+            foreach (Produto produto in listaCarrinho)
             {
                 produto.MostrarDetalhes();
             }
