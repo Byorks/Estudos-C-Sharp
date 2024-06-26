@@ -77,5 +77,10 @@ namespace Projeto_Final.Models
             Console.WriteLine("Informe o novo preço do produto: ");
             Preco = double.Parse(Console.ReadLine());
         }
+
+        public static void AtualizarQuantidade(Produto prodSelecionado, int qtd)
+        {
+            prodSelecionado.QuantidadeEstoque -= qtd;
+        }
     }
 }

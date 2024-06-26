@@ -124,7 +124,7 @@ while (menu)
         case 13:
             Console.Clear();
             Console.WriteLine("Inicializando Compras");
-            Console.WriteLine("Quem é o funcionário que inicializara a venda?\n");
+            Console.WriteLine("Quem é o funcionário que fará a venda?\n");
             Console.WriteLine("Lista funcionários\n");
             // Mostra lista Funcionários
             DisplayHelper.MostrarFuncionarios(funcionarioService);

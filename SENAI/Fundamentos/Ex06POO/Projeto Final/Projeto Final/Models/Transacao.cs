@@ -54,6 +54,8 @@ namespace Projeto_Final.Models
                 Console.WriteLine("Digite a quantia desejada: ");
                 int quantidade = int.Parse(Console.ReadLine());
 
+                Produto.AtualizarQuantidade(produtoService.BuscarPorId(idProd), quantidade);
+                
                 calcQtd = quantidade * prodSelecionado.Preco;
 
                 ValorTotal += calcQtd;
@@ -102,6 +104,13 @@ namespace Projeto_Final.Models
         public void MostrarDetalhes()
         {
             Console.WriteLine($"Id: {Id}, Id Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total R$ {ValorTotal:C}");
+        }
+
+        // Não implementado
+        public void MostrarDetalhesCarriho()
+        {
+            Console.WriteLine($"Id: {Id}, Id Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total R$ {ValorTotal:C}");
+
         }
     }
 }
