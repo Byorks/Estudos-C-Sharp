@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Método_Construtor
 {
-    internal class Pessoa
+    public class Pessoa
     {
         public string Nome;
         public string Sobrenome;
@@ -22,6 +22,28 @@ namespace Método_Construtor
             Sobrenome = "Nehum";
             AnoNascimento = 0;
             Idade = 0;  
+        }
+
+        // Método Construtor com Overload   
+        public Pessoa(string nome, string sobrenome,int anoNascimento)
+        {
+            Nome = nome;
+            Sobrenome = sobrenome;
+            AnoNascimento = anoNascimento;
+            Idade = IdadeCalc();
+        }        
+        
+        public Pessoa(string nome, string sobrenome)
+        {
+            Nome = nome;
+            Sobrenome = sobrenome;
+            AnoNascimento = 2000;
+            Idade = IdadeCalc();
+        }
+
+        private int IdadeCalc()
+        {
+            return DateTime.Now.Year - AnoNascimento;
         }
     }
 }
