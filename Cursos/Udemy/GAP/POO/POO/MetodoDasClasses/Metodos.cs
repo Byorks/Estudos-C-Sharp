@@ -69,7 +69,7 @@ namespace MetodoDasClasses
         }
 
         // Sobrecarga de Métodos (Overload)
-        // O métodop Cumprimentar esta sendo re-utilizado
+        // O método Cumprimentar esta sendo re-utilizado
         // Passagem de parámetros diferente, + - ou diferentes
         // Um retorno diferente não define uma assinatura difenrente
         public void Cumprimentar(string nome)
@@ -77,7 +77,7 @@ namespace MetodoDasClasses
             Console.WriteLine("Olá " + nome);
         }
           public void Cumprimentar(string nome, int hora)
-        {
+        {   // Condicional Ternaria 
             // ? é como se fosse um if mais curto
             // : - se não
             string mensagem = hora < 12 ? "Bom dia " + nome : "Boa tarde " + nome;

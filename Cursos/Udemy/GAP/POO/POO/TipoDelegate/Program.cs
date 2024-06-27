@@ -9,7 +9,7 @@ Operacao conta = null;
 conta += m.Somar; // Saída 20
 conta += m.Subtrair; // Saída 0
 conta += m.Multiplicar; // Saída 100
-conta += m.Multiplicar; // Saída 100
+conta += m.Multiplicar; // Saída 
 conta += m.Dividir; // Saída 1
 
 // Excuta todas as operações 

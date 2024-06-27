@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThermoThis", "ThermoThis\Th
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TipoDelegate", "TipoDelegate\TipoDelegate.csproj", "{6BB5714D-1ED4-4EDB-940E-E9236161CD80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Método Construtor", "Método Construtor\Método Construtor.csproj", "{42F47292-9509-498C-9ADA-0A9FC3AAE56D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6BB5714D-1ED4-4EDB-940E-E9236161CD80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BB5714D-1ED4-4EDB-940E-E9236161CD80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BB5714D-1ED4-4EDB-940E-E9236161CD80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42F47292-9509-498C-9ADA-0A9FC3AAE56D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F47292-9509-498C-9ADA-0A9FC3AAE56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F47292-9509-498C-9ADA-0A9FC3AAE56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F47292-9509-498C-9ADA-0A9FC3AAE56D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
