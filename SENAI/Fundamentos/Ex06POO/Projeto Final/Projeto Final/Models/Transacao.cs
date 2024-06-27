@@ -80,10 +80,10 @@ namespace Projeto_Final.Models
                 int cont = 1;
                 
                 if (Console.ReadLine() == "s")
-                {
+                {   // Acho que a lógica está errada
                     // usar var carrito aqui
-                    string[] ProdutosVenda = new string[cont];
-                    foreach ()
+                    //string[] ProdutosVenda = new string[cont];
+                    //foreach ()
 
                     selecaoProdutos = false;
                 }
