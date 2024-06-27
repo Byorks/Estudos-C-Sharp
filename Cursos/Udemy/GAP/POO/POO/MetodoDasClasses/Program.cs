@@ -11,7 +11,7 @@ Metodos m = new Metodos();
 //m.Somar(10, 5);
 
 //m.Apresentar("Dioguinho", 23);
-//#endregion
+#endregion
 
 #region Passagem de parâmetro por valor e referência
 //int valor1 = 100;
@@ -39,17 +39,16 @@ Metodos m = new Metodos();
 //Console.ReadKey();
 #endregion
 
-#region MyRegion
-m.Cumprimentar();
-m.Cumprimentar("Vanessa Byork");
-m.Cumprimentar("Vanessa Byork", 18);
+#region Método com Overload
+//m.Cumprimentar();
+//m.Cumprimentar("Vanessa Byork");
+//m.Cumprimentar("Vanessa Byork", 18);
 
-bool res1 = m.Comparar(100, 50 * 2); // true
-bool res2 = m.Comparar("Vanessa Byork", "vanessa byork"); // false porque é case sensitive 
+//bool res1 = m.Comparar(100, 50 * 2); // true
+//bool res2 = m.Comparar("Vanessa Byork", "vanessa byork"); // false porque é case sensitive 
 
-Console.WriteLine(res1);
-Console.WriteLine(res2); 
+//Console.WriteLine(res1);
+//Console.WriteLine(res2); 
 
+//Console.ReadKey();
 #endregion
-
-Console.ReadKey();
