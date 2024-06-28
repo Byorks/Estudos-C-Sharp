@@ -19,7 +19,7 @@ namespace Projeto_Final.Models
         // Lista dos produtos comprados
         public double ValorTotal { get; set; }
 
-        public static Transacao IniciaCarrinho(int idFun, int idCliente, ProdutoService produtoService, CarrinhoService carrinhoService)
+        public static Transacao IniciaCarrinho(int idFun, int idCliente, ProdutoService produtoService, CarrinhoService carrinhoService,VendasService vendasService)
         {
             Console.WriteLine("\n--- Venda Iniciada ---\n");
 
@@ -75,10 +75,9 @@ namespace Projeto_Final.Models
 
                 Console.WriteLine($"Valor total {ValorTotal}:");
 
-                Console.WriteLine("\nGostaria de encerrar a operacao? (s)Sim (n)Não");
-                
-                int cont = 1;
-                
+
+
+                Console.WriteLine("\nGostaria de encerrar a operacao? (s)Sim (n)Não");            
                 if (Console.ReadLine() == "s")
                 {   // Acho que a lógica está errada
                     // usar var carrito aqui
@@ -87,10 +86,12 @@ namespace Projeto_Final.Models
 
                     selecaoProdutos = false;
                 }
-               
+
+                // Vou adicionar ao vendas o item que pessoa selecionou, usando o indice = id
+                
+
                 // Cuidado com esse clear
                 Console.Clear();
-                cont++;
             }
 
             // Selecionar os produtos de interesse, 1 por 1?
@@ -107,13 +108,27 @@ namespace Projeto_Final.Models
             // Verificar Data da transação
             transacao.DataTransacao = DateTime.Now.ToString("d/MM/yyyy");
 
-            Console.WriteLine("Venda realizada com sucesso!");
+            Console.WriteLine("Venda realizada com sucesso!\n");
+            int cont = 0;
+
+            vendasService.AdicionarVendas(carrinhoService.ListarCarrinho());
+
+            //List<List<Produto>> compras = vendasService.ListarVendas();
+            //foreach (Produto prod in carrinhoService.RetornarCarrinho())
+            //{
+            //    compras[cont].Add(prod);
+            //}
+
+           
+            cont++;
             return transacao;
         }
 
         public void MostrarDetalhes()
         {
             Console.WriteLine($"Id: {Id}, Id Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total {ValorTotal:C}");
+            Console.WriteLine("Produtos adquiridos");
+
         }
 
         public void MostrarDetalhesCarrinho()

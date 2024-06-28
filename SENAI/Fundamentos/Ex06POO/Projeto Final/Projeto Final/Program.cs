@@ -131,11 +131,10 @@ while (menu)
             int vendedorId = Convert.ToInt16(Console.ReadLine());
             Funcionario funcVendedor = funcionarioService.BuscarPorId(vendedorId);
 
-            Console.WriteLine();
+            Console.Clear();
             
-            Console.WriteLine($"Venda iniciada...\nOlá {funcVendedor.Nome}!");
+            Console.WriteLine($"Venda inciada...\nOlá {funcVendedor.Nome}!");
             Console.WriteLine("Selecione o Cliente: ");
-
             // Se não tiver cliente, terei que usar um ID genérico?
             if (clienteService.ListarClientes == null)
             {
@@ -156,10 +155,13 @@ while (menu)
             Console.Write("\nDigite o Id do cliente selecionado: \n");
             int IdComprador = Convert.ToInt16(Console.ReadLine());
 
+            Console.Clear();
+
             Console.WriteLine("Bem vindo(a) a nossa loja (^o^)!");
-            transacaoService.AdicionarTransacao(Transacao.IniciaCarrinho(vendedorId, IdComprador, produtoService, carrinhoService));
+            transacaoService.AdicionarTransacao(Transacao.IniciaCarrinho(vendedorId, IdComprador, produtoService, carrinhoService, vendasService));
 
             // Passar o conteúdo de carrinho para vendas
+            // Vou usar um método para isso
 
             // Limpa o carrinho
             carrinhoService.ListarCarrinho().Clear();
@@ -170,7 +172,8 @@ while (menu)
             break;
         case 16: // Listar transacoes
             Console.WriteLine("Histórico de Transações");
-            DisplayHelper.MostrarTransacoes(transacaoService);
+            DisplayHelper.MostrarTransacoes(transacaoService, vendasService);
+            
             break;
         case 17:
             Console.WriteLine("Pressione qualquer tecla para limpar...");

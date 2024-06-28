@@ -58,5 +58,33 @@ namespace Projeto_Final.Utils
                 produto.MostrarCarrinho();
             }
         }
+
+        public static void MostrarVendas (VendasService vendasService, int id)
+        {
+            // Quero que mostre os produtos do index == ID
+            List<Produto> listaVendas = vendasService.ProdutosCompradosID(id);
+            foreach (Produto produto in listaVendas)
+            {   
+                // Ver se está mostrando mesmo
+                produto.MostrarDetalhes();
+            }
+            
+        }
+
+        public static void MostrarTransacoes(TransacaoService transacaoService, VendasService vendasService)
+        {
+            List<Transacao> transacoes = transacaoService.ListarTransacoes();
+            foreach(Transacao transacao in transacoes)
+            {
+                // É aqui que entra a lógica
+
+                transacao.MostrarDetalhes();
+                List<List<Produto>> produtos = vendasService.ListarVendas();
+                for( int i = 0; i < produtos.Count; i++)
+                {
+                    Console.WriteLine(produtos[i]);
+                }
+            }
+        }
     }
 }
