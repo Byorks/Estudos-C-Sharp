@@ -41,16 +41,10 @@ namespace Projeto_Final.Models
 
         public void MostrarDetalhes()
         {
-            Console.WriteLine($"Id: {Id}, Id Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total {ValorTotal:C}");
-            Console.WriteLine("Produtos adquiridos");
+            Console.WriteLine($"Id: {Id}\nId Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}\nData da transação: {DataTransacao}\nHorário da transação: {HoraTransacao}\nValor Total R$ {ValorTotal.ToString("F2")}");
+            Console.WriteLine(" --- Produtos adquiridos --- ");
 
         }
 
-        public void MostrarDetalhesCarrinho()
-        {
-            string carrinho = $"Id: {Id}, Id Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}, Data da transação: {DataTransacao}, Horário da transação: {HoraTransacao}, Valor Total R$ {ValorTotal:C}";
-            Console.WriteLine(carrinho);
-
-        }
     }
 }

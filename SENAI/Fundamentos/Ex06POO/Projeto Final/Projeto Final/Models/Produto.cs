@@ -65,11 +65,9 @@ namespace Projeto_Final.Models
         {
             Console.WriteLine($"ID: {Id}, Nome: {Nome}, Categoria {Categoria}, Quantidade em estoque: {QuantidadeEstoque}, DataValidade: {DiaValidade}/{MesValidade}/{AnoValidade}, Preço {Preco:C}");
         }
-        public string MostrarCarrinho()
+        public void MostrarCarrinho()
         {
-            string carrito = $"ID: {Id}\nNome: {Nome}\nCategoria {Categoria}\nQuantidade no Carrinho: {QuantidadeCarrinho}\nDataValidade: {DiaValidade}/{MesValidade}/{AnoValidade}\nPreço {Preco:C}\n";
-            Console.WriteLine(carrito);
-            return carrito;
+            Console.WriteLine($"ID: {Id}\nNome: {Nome}\nCategoria {Categoria}\nQuantidade no Carrinho: {QuantidadeCarrinho}\nDataValidade: {DiaValidade}/{MesValidade}/{AnoValidade}\nPreço {Preco:C}\n");
         }
 
         public void Atualizar()
@@ -103,9 +101,9 @@ namespace Projeto_Final.Models
             prodSelecionado.QuantidadeEstoque -= qtd;
         }
 
-        public static void PassarProdutos(List<Produto> carrinho, VendasService vendaService)
-        {   
-            vendaService.AdicionarVendas(carrinho);
-        }
+        //public static void PassarProdutos(List<Produto> carrinho, VendasService vendaService)
+        //{   
+        //    vendaService.AdicionarVendas(carrinho);
+        //}
     }
 }

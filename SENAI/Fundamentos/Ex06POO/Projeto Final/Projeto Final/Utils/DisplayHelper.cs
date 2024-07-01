@@ -62,11 +62,11 @@ namespace Projeto_Final.Utils
         public static void MostrarVendas (VendasService vendasService, int id)
         {
             // Quero que mostre os produtos do index == ID
-            List<Produto> listaVendas = vendasService.ProdutosCompradosID(id);
+            Produto [] listaVendas = vendasService.ProdutosCompradosID(id);
             foreach (Produto produto in listaVendas)
             {   
                 // Ver se está mostrando mesmo
-                produto.MostrarDetalhes();
+                produto.MostrarCarrinho();
             }
             
         }
@@ -74,14 +74,14 @@ namespace Projeto_Final.Utils
         public static void MostrarTransacoes(TransacaoService transacaoService, VendasService vendasService)
         {
             List<Transacao> transacoes = transacaoService.ListarTransacoes();
-            foreach(Transacao transacao in transacoes)
+            foreach (Transacao transacao in transacoes)
             {
 
                 transacao.MostrarDetalhes();
-                List<List<Produto>> produtos = vendasService.ListarVendas(); 
+                List<Produto[]> produtos = vendasService.ListarVendas();
                 foreach (Produto prod in produtos[transacao.Id])
                 {
-                    prod.MostrarDetalhes();
+                    prod.MostrarCarrinho();
                 }
             }
         }

@@ -30,6 +30,11 @@ namespace Projeto_Final.Services
         {
             _transacoes.Remove(transacao);
         }
+
+        public Transacao BuscarTransacaoPorId(int id)
+        {
+            return _transacoes.FirstOrDefault(i => i.Id == id);
+        }
     }
 
 
