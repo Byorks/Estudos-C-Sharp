@@ -246,11 +246,15 @@ while (menu)
             break;
         case 14:
             Console.WriteLine("--- Cancelamento de Transações ---");
+
+            Console.WriteLine("Histórico de Transações\n");
+            DisplayHelper.MostrarTransacoes(transacaoService, vendasService);
+
             Console.Write("Digite o ID da transação que deseja cancelar: ");
             int idSelect = int.Parse(Console.ReadLine());
             transacaoService.RemoverTransacao(transacaoService.BuscarTransacaoPorId(idSelect));
             vendasService.RemoverVendas(vendasService.ProdutosCompradosID(idSelect));
-            Console.WriteLine("Transação cancelada com sucesso! (●'◡'●)");
+            Console.WriteLine("Transação cancelada com sucesso! ;D");
             // Dá para colocar sistema de confirmação de delete
             break;
         case 15: 

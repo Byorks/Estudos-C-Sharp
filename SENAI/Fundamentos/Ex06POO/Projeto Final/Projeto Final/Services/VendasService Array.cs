@@ -9,7 +9,7 @@ using Projeto_Final.Services;
 
 namespace Projeto_Final.Services
 {
-    public class VendasService : Produto
+    public class VendasService
     {
         private List<Produto[]> _vendasEfetuadas;
 
