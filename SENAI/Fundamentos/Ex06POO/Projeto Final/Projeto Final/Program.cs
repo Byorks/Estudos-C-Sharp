@@ -233,10 +233,13 @@ while (menu)
 
             // Passar o conteúdo de carrinho para vendas
             List<Produto> produtosCarrinho = carrinhoService.ListarCarrinho();
-            // Vou usar um método para isso
-            Produto[] ProdVendidos = produtosCarrinho.ToArray();
+            var listaProduto = produtosCarrinho.Select(x => x).ToList();
+            Console.WriteLine(produtosCarrinho);
+            //// Vou usar um método para isso
+            //Produto[] ProdVendidos = produtosCarrinho.ToArray();
 
-            vendasService.AdicionarVendas(ProdVendidos);
+            vendasService.AdicionarVendas(listaProduto);
+            Console.WriteLine(vendasService.ListarVendas());
             //vendasService.AdicionarVendas(produtosCarrinho);
 
             // Limpa o carrinho
@@ -253,7 +256,8 @@ while (menu)
             Console.Write("Digite o ID da transação que deseja cancelar: ");
             int idSelect = int.Parse(Console.ReadLine());
             transacaoService.RemoverTransacao(transacaoService.BuscarTransacaoPorId(idSelect));
-            vendasService.RemoverVendas(vendasService.ProdutosCompradosID(idSelect));
+            // Aguardando refatoração de código
+            //vendasService.RemoverVendas(vendasService.ProdutosCompradosID(idSelect));
             Console.WriteLine("Transação cancelada com sucesso! ;D");
             // Dá para colocar sistema de confirmação de delete
             break;
