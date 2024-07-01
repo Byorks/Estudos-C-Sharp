@@ -12,6 +12,15 @@ namespace Projeto_Final.Models
         public string NumeroRegistro { get; set; }
         public string HorarioTrabalho { get; set; }
 
+        public Funcionario() { }
+        public Funcionario(string nome, string cargo, string numeroRegistro, string horarioTrabalho)
+        {
+            Nome = nome;
+            Cargo = cargo;
+            NumeroRegistro = numeroRegistro;
+            HorarioTrabalho = horarioTrabalho;
+        }
+
         public static Funcionario CriarFuncionario()
         {   
             Funcionario funcionario = new Funcionario();

@@ -10,6 +10,19 @@ TransacaoService transacaoService = new TransacaoService();
 CarrinhoService carrinhoService = new CarrinhoService();
 VendasService vendasService = new VendasService();
 
+#region Cliente Funcionario e Produtos Predefinidos
+Cliente cliente1 = new Cliente("Joao","Rua Senaizera", "1196568881", 25,06,1999,"528.888.888-55");
+Funcionario funcionario1 = new Funcionario("Pedro", "Caixa", "18", "8h");
+Produto produto1 = new Produto("Pão", "Panificadora", 10, 2, 07, 2024, 1.0);
+Produto produto2 = new Produto("Croissant", "Panificadora", 8, 3, 07, 2024, 3.0);
+
+clienteService.AdicionarCliente(cliente1);
+funcionarioService.AdicionarFuncionario(funcionario1);
+produtoService.AdicionarProduto(produto1);
+produtoService.AdicionarProduto(produto2);
+
+#endregion
+
 Console.WriteLine("Mercadinho da Byork ^-^");
 
 
@@ -134,7 +147,8 @@ while (menu)
             Console.Clear();
             
             Console.WriteLine($"Venda inciada...\nOlá {funcVendedor.Nome}!");
-            Console.WriteLine("Selecione o Cliente: ");
+            Console.WriteLine("\nSelecione o Cliente: ");
+
             // Se não tiver cliente, terei que usar um ID genérico?
             if (clienteService.ListarClientes == null)
             {
@@ -151,17 +165,76 @@ while (menu)
                 }
  
             }
+
             DisplayHelper.MostrarClientes(clienteService);
-            Console.Write("\nDigite o Id do cliente selecionado: \n");
+            Console.Write("\nDigite o Id do cliente selecionado: ");
             int IdComprador = Convert.ToInt16(Console.ReadLine());
 
             Console.Clear();
 
             Console.WriteLine("Bem vindo(a) a nossa loja (^o^)!");
-            transacaoService.AdicionarTransacao(Transacao.IniciaCarrinho(vendedorId, IdComprador, produtoService, carrinhoService, vendasService));
+
+            //
+            Console.WriteLine("\n--- Venda Iniciada ---\n");
+
+            Console.WriteLine($"Id do funcionario: {vendedorId}");
+            Console.WriteLine($"Id do cliente selecionado: {IdComprador}");
+
+            double calcQtd = 0;
+            double valorTotal = 0;
+            bool selecaoProdutos = true;
+
+            while (selecaoProdutos)
+            {
+                Console.WriteLine("\nLista de Produtos disponiveis:");
+                DisplayHelper.MostrarProdutos(produtoService);
+                Console.WriteLine("\nSelecione os produtos do seu interesse.");
+
+                // Selecina o id do produto selecionado e a quantia
+                Console.WriteLine("Digite o Id do produto desejado para adicionar ao carrinho");
+                int idProdSelecionado = int.Parse(Console.ReadLine());
+                // Aqui está copiando o produto da lita produtos
+                Produto prodSelecionado = produtoService.BuscarPorId(idProdSelecionado);
+
+                Console.WriteLine($"Quantidade Disponível em estoque: {prodSelecionado.QuantidadeEstoque}");
+                Console.Write("Digite a quantia desejada: ");
+                int quantidade = int.Parse(Console.ReadLine());
+
+                prodSelecionado.QuantidadeCarrinho = quantidade;
+                
+                // Método que atualiza a quantidade do produto que foi comprado
+                Produto.AtualizarQuantidade(produtoService.BuscarPorId(idProdSelecionado), quantidade);
+
+                calcQtd = quantidade * prodSelecionado.Preco;
+
+                valorTotal += calcQtd;
+
+                // Produto selecionado tem que ir para a lista _produtosCarrinho
+                carrinhoService.AdicionarCarrinho(prodSelecionado);
+
+                Console.Clear();
+
+                Console.WriteLine("\n--- Lista de Produtos no Carrinho ---\n");
+                DisplayHelper.MostrarCarrinho(carrinhoService);
+
+                Console.WriteLine($"Valor total {valorTotal}:");
+
+                Console.WriteLine("\nGostaria de encerrar a operacao? (s)Sim (n)Não");
+                if (Console.ReadLine() == "s")
+                {
+                    selecaoProdutos = false;
+                    Console.WriteLine("Venda realizada com sucesso!\n");
+
+                }
+            }
+
+            // Método para criar transacao e já passar para a lista
+            transacaoService.AdicionarTransacao(Transacao.CriarTransacao(vendedorId, IdComprador, valorTotal));
 
             // Passar o conteúdo de carrinho para vendas
+            List<Produto> produtosCarrinho = carrinhoService.ListarCarrinho();
             // Vou usar um método para isso
+            vendasService.AdicionarVendas(produtosCarrinho);
 
             // Limpa o carrinho
             carrinhoService.ListarCarrinho().Clear();

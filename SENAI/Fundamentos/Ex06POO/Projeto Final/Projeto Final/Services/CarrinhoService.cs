@@ -39,12 +39,6 @@ namespace Projeto_Final.Services
         {
             return _produtosCarrinho.FirstOrDefault(x => x.Id == id);
         }
-
-        public List<Produto> RetornarCarrinho()
-        {
-            return _produtosCarrinho;
-        }
-
     }
     
 }

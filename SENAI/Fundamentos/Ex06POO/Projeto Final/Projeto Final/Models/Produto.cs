@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projeto_Final.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,18 @@ namespace Projeto_Final.Models
         public int MesValidade{ get; set; }
         public int AnoValidade{ get; set; }
         public double Preco { get; set; }
+
+        public Produto() { }
+        public Produto (string nome, string categoria, int quantidadeEstoque,int diaValidade, int mesValidade, int anoValidade, double preco)
+        {
+            Nome = nome;
+            Categoria = categoria;
+            QuantidadeEstoque = quantidadeEstoque;
+            DiaValidade = diaValidade;
+            MesValidade = mesValidade;
+            AnoValidade = anoValidade;
+            Preco = preco;
+        }
 
         static public Produto CriarProduto()
         {
@@ -88,6 +101,11 @@ namespace Projeto_Final.Models
         public static void AtualizarQuantidade(Produto prodSelecionado, int qtd)
         {
             prodSelecionado.QuantidadeEstoque -= qtd;
+        }
+
+        public static void PassarProdutos(List<Produto> carrinho, VendasService vendaService)
+        {   
+            vendaService.AdicionarVendas(carrinho);
         }
     }
 }

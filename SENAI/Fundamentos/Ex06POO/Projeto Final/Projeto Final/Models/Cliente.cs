@@ -17,7 +17,20 @@ namespace Projeto_Final.Models
         public int AnoNascimento { get; set; }
         public string CPF { get; set; }
 
-        
+        //Construtores
+        public Cliente() { }
+
+        public Cliente (string nome, string endereco, string telefone, int diaNascimento, int mesNascimento, int anoNascimento, string cpf)
+        {
+            Nome = nome;
+            Endereco = endereco;
+            Telefone = telefone;
+            DiaNascimento = diaNascimento;
+            MesNascimento = mesNascimento;
+            AnoNascimento = anoNascimento;
+            CPF = cpf;
+        }
+
         static public Cliente CriarCliente()
         {
             Cliente cliente = new Cliente();

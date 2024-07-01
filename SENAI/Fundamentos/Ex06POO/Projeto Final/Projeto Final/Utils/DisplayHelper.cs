@@ -76,13 +76,12 @@ namespace Projeto_Final.Utils
             List<Transacao> transacoes = transacaoService.ListarTransacoes();
             foreach(Transacao transacao in transacoes)
             {
-                // É aqui que entra a lógica
 
                 transacao.MostrarDetalhes();
-                List<List<Produto>> produtos = vendasService.ListarVendas();
-                for( int i = 0; i < produtos.Count; i++)
+                List<List<Produto>> produtos = vendasService.ListarVendas(); 
+                foreach (Produto prod in produtos[transacao.Id])
                 {
-                    Console.WriteLine(produtos[i]);
+                    prod.MostrarDetalhes();
                 }
             }
         }
