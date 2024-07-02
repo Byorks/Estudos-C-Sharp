@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListTestes", "ListTestes\ListTestes.csproj", "{F95500DE-C115-4AE0-9140-D61871598B76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Galaxias", "Galaxias", "{71D74083-3FAF-480D-9D36-102DD7B428B4}"
+	ProjectSection(SolutionItems) = preProject
+		Galaxias.cs = Galaxias.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F95500DE-C115-4AE0-9140-D61871598B76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F95500DE-C115-4AE0-9140-D61871598B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F95500DE-C115-4AE0-9140-D61871598B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F95500DE-C115-4AE0-9140-D61871598B76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E44D2D14-7D4E-4061-8FD9-5C21F172C898}
+	EndGlobalSection
+EndGlobal

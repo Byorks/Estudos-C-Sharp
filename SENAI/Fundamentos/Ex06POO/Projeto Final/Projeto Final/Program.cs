@@ -263,7 +263,8 @@ while (menu)
             Console.WriteLine("Transação cancelada com sucesso! ;D");
             // Dá para colocar sistema de confirmação de delete
             break;
-        case 15: 
+        case 15:
+            AtualizarTransacao();
             break;
         case 16: // Listar transacoes
             Console.WriteLine("Histórico de Transações\n");
@@ -282,4 +283,62 @@ while (menu)
             Console.WriteLine("Opção inválida! Escolha novamente :D ");
             break;
     }
+}
+
+void AtualizarTransacao()
+{
+    //Definindo algoritmo para iniciar a atualização da transação
+    Console.WriteLine("--- Atualizar Transação ---");
+    Console.WriteLine("Histórico de Transações\n");
+    DisplayHelper.MostrarTransacoes(transacaoService);
+
+    //Selecionar a transação pelo id
+    Console.Write("Digite o ID da transação que deseja alterar");
+    Transacao transacaoAtualizar = transacaoService.BuscarTransacaoPorId(Int32.Parse(Console.ReadLine()));
+
+    Console.WriteLine("Digite a opção desejada");
+
+    Console.WriteLine($"Menu Atualizar Transação de ID: {transacaoAtualizar.Id}\n");
+    Console.WriteLine("1 - Atualizar Cliente");
+    Console.WriteLine("2 - Atualizar Funcionário");
+    Console.WriteLine("3 - Troca ou devolução de produtos");
+
+    int menuTr;
+    menuTr = Int32.Parse(Console.ReadLine());
+    switch (menuTr)
+    {
+        case 1:
+            Console.WriteLine("Buscando Cliente...\n");
+            clienteService.BuscarPorId(transacaoAtualizar.IdCliente).Atualizar(); 
+            break;
+        case 2:
+            Console.WriteLine("Buscando Funcionário...\n");
+            funcionarioService.BuscarPorId(transacaoAtualizar.IdFuncionario).Atualizar();
+            break;
+        case 3:
+            Console.WriteLine("Troca ou Devolução de Produtos");
+            // Descobrir como alterar elementos de dentro da lista
+            List<Produto> ListaProdutosAtualizar = vendasService.ProdutosCompradosID(transacaoAtualizar.Id);
+            Console.Write("Informe a opção desejada (Troca ou Devolução): ");
+            if (Console.ReadLine().ToLower() == "troca")
+            {
+                Console.WriteLine("Lista de Produtos");
+                DisplayHelper.MostrarVendas(vendasService, transacaoAtualizar.Id);
+                Console.Write("\n Selecione o ID do produto que deseja trocar: \n");
+
+                DisplayHelper.MostrarProdutos(ListaProdutosAtualizar);
+
+                int idProdTroca = Int32.Parse(Console.ReadLine());
+            }
+            break;
+        default:
+            break;
+    }
+    //    Pega a transação e a lista vendas correspondente
+    //    Selecionar o que quer fazer: 
+    //		Opções:
+    //Atualizar Cliente -caso tenha algum erro no registro
+    //			Atualizar Funcionário - mesma coisa de cimas
+    //			Troca ou devolução de produtos
+    //				Consequentemente o valor total vai mudar!
 }

@@ -15,7 +15,6 @@ namespace Projeto_Final.Models
         public int IdCliente { get; set; }
         public string DataTransacao { get; set; }
         public string HoraTransacao { get; set; }
-        public static DateTime Now { get; }
         // Lista dos produtos comprados
         public double ValorTotal { get; set; }
 
@@ -46,5 +45,9 @@ namespace Projeto_Final.Models
 
         }
 
+        public void AtualizarTransacao()
+        {
+            
+        }
     }
 }
