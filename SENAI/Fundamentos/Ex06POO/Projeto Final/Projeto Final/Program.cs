@@ -11,12 +11,12 @@ CarrinhoService carrinhoService = new CarrinhoService();
 VendasService vendasService = new VendasService();
 
 #region Cliente Funcionario e Produtos Predefinidos
-Cliente cliente1 = new Cliente("Joao","Rua Senaizera", "1196568881", 25,06,1999,"528.888.888-55");
+//Cliente cliente1 = new Cliente("Joao","Rua Senaizera", "1196568881", 25,06,1999,"528.888.888-55");
 Funcionario funcionario1 = new Funcionario("Pedro", "Caixa", "18", "8h");
 Produto produto1 = new Produto("Pão", "Panificadora", 10, 2, 07, 2024, 1.0);
 Produto produto2 = new Produto("Croissant", "Panificadora", 8, 3, 07, 2024, 3.0);
 
-clienteService.AdicionarCliente(cliente1);
+//clienteService.AdicionarCliente(cliente1);
 funcionarioService.AdicionarFuncionario(funcionario1);
 produtoService.AdicionarProduto(produto1);
 produtoService.AdicionarProduto(produto2);
@@ -150,7 +150,7 @@ while (menu)
             Console.WriteLine("\nSelecione o Cliente: ");
 
             // Se não tiver cliente, terei que usar um ID genérico?
-            if (clienteService.ListarClientes == null)
+            if (clienteService.ListarClientes().Exists(x => x.Id == 0) == false)
             {
                 Console.WriteLine("Lista de Clientes vazia, gostaria de iniciar um cadastro?");
                 Console.WriteLine("Digite (s)Sim ou (n)Não");
@@ -161,9 +161,11 @@ while (menu)
                 }
                 else
                 {
-                    Console.WriteLine("Cliente Genérico inicializado");                   
+                    Console.WriteLine("Cliente Genérico inicializado");
+                    Cliente clienteGen = new Cliente ("Cliente", "Endereço não definido", "11 0000 0000", 0, 0, 0, "Não definido");
+                    clienteService.AdicionarCliente(clienteGen);
                 }
- 
+
             }
 
             DisplayHelper.MostrarClientes(clienteService);
