@@ -1,5 +1,4 @@
-﻿using SistemaSupermercado.Model;
-using SistemaSupermercado.Models;
+﻿using SistemaSupermercado.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
