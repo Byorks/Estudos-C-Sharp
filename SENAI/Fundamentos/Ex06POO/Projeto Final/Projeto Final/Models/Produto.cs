@@ -63,7 +63,7 @@ namespace Projeto_Final.Models
 
         public void MostrarDetalhes()
         {
-            Console.WriteLine($"ID: {Id}, Nome: {Nome}, Categoria {Categoria}, Quantidade em estoque: {QuantidadeEstoque}, DataValidade: {DiaValidade}/{MesValidade}/{AnoValidade}, Preço {Preco:C}");
+            Console.WriteLine($"ID: {Id}, Nome: {Nome}, Categoria {Categoria}, Quantidade em estoque: {QuantidadeEstoque}, DataValidade: {DiaValidade}/{MesValidade}/{AnoValidade}, Preço UN R$ {Preco}");
         }
         public void MostrarCarrinho()
         {
@@ -105,5 +105,9 @@ namespace Projeto_Final.Models
         //{   
         //    vendaService.AdicionarVendas(carrinho);
         //}
+        public static Produto BuscarProdID(int id,List<Produto> listaProd)
+        {
+            return listaProd.FirstOrDefault(x => x.Id == id);
+        }
     }
 }

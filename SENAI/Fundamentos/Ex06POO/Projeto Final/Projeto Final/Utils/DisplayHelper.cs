@@ -42,9 +42,12 @@ namespace Projeto_Final.Utils
         }
         public static void MostrarProdutos (List<Produto> listaProdutos)
         {
+            int cont = 0;
             foreach ( Produto produto in listaProdutos)
             {
+                Console.Write(cont + " - ");
                 produto.MostrarDetalhes();
+                cont++;
             }
         }
 

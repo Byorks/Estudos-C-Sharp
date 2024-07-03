@@ -18,7 +18,9 @@ namespace Projeto_Final.Models
         // Lista dos produtos comprados
         public double ValorTotal { get; set; }
 
-        public static Transacao CriarTransacao (int idFun, int idCliente, double valorTotal)
+        public int QuantidadeProdutos { get; set; } 
+
+        public static Transacao CriarTransacao (int idFun, int idCliente, double valorTotal, int cont)
         {
 
             Transacao transacao = new Transacao();
@@ -35,14 +37,15 @@ namespace Projeto_Final.Models
             // Verificar Data da transação
             transacao.DataTransacao = DateTime.Now.ToString("d/MM/yyyy");
 
-            return transacao;
+            transacao.QuantidadeProdutos = cont;
+
+           return transacao;
         }
 
         public void MostrarDetalhes()
         {
-            Console.WriteLine($"Id: {Id}\nId Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}\nData da transação: {DataTransacao}\nHorário da transação: {HoraTransacao}\nValor Total R$ {ValorTotal.ToString("F2")}");
+            Console.WriteLine($"Id: {Id}\nId Funcionario: {IdFuncionario}, Id Cliente: {IdCliente}\nData da transação: {DataTransacao}\nHorário da transação: {HoraTransacao}\nQuantidade de Produtos Adquiridos: {QuantidadeProdutos}\nValor Total R$ {ValorTotal.ToString("F2")}");
             Console.WriteLine(" --- Produtos adquiridos --- ");
-
         }
 
         public void AtualizarTransacao()

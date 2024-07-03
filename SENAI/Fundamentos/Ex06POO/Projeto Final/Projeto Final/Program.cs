@@ -182,6 +182,7 @@ while (menu)
             Console.WriteLine($"Id do funcionario: {vendedorId}");
             Console.WriteLine($"Id do cliente selecionado: {IdComprador}");
 
+            int cont = 0;
             double calcQtd = 0;
             double valorTotal = 0;
             bool selecaoProdutos = true;
@@ -211,6 +212,7 @@ while (menu)
 
                 valorTotal += calcQtd;
 
+                cont++;
                 // Produto selecionado tem que ir para a lista _produtosCarrinho
                 carrinhoService.AdicionarCarrinho(prodSelecionado);
 
@@ -231,7 +233,7 @@ while (menu)
             }
 
             // Método para criar transacao e já passar para a lista
-            transacaoService.AdicionarTransacao(Transacao.CriarTransacao(vendedorId, IdComprador, valorTotal));
+            transacaoService.AdicionarTransacao(Transacao.CriarTransacao(vendedorId, IdComprador, valorTotal, cont));
 
             // Passar o conteúdo de carrinho para vendas
             List<Produto> produtosCarrinho = carrinhoService.ListarCarrinho();
@@ -318,17 +320,20 @@ void AtualizarTransacao()
         case 3:
             Console.WriteLine("Troca ou Devolução de Produtos");
             // Descobrir como alterar elementos de dentro da lista
-            List<Produto> ListaProdutosAtualizar = vendasService.ProdutosCompradosID(transacaoAtualizar.Id);
+            List<Produto> listaProdutosAtualizar = vendasService.ProdutosCompradosID(transacaoAtualizar.Id);
             Console.Write("Informe a opção desejada (Troca ou Devolução): ");
             if (Console.ReadLine().ToLower() == "troca")
             {
                 Console.WriteLine("Lista de Produtos");
-                DisplayHelper.MostrarVendas(vendasService, transacaoAtualizar.Id);
-                Console.Write("\n Selecione o ID do produto que deseja trocar: \n");
+                DisplayHelper.MostrarProdutos(listaProdutosAtualizar);
 
-                DisplayHelper.MostrarProdutos(ListaProdutosAtualizar);
-
+                Console.Write("\n Selecione o número do produto que deseja trocar: \n");
                 int idProdTroca = Int32.Parse(Console.ReadLine());
+                listaProdutosAtualizar.RemoveAt(idProdTroca);
+                
+                
+                //Criando uma nova lista a partir daquela
+                var listaAtualizada = listaProdutosAtualizar.Select(x => x).ToList();
             }
             break;
         default:
