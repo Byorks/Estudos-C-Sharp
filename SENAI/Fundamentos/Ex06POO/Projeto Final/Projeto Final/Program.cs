@@ -11,12 +11,12 @@ CarrinhoService carrinhoService = new CarrinhoService();
 VendasService vendasService = new VendasService();
 
 #region Cliente Funcionario e Produtos Predefinidos
-//Cliente cliente1 = new Cliente("Joao","Rua Senaizera", "1196568881", 25,06,1999,"528.888.888-55");
+Cliente cliente1 = new Cliente("Joao", "Rua Senaizera", "1196568881", 25, 06, 1999, "528.888.888-55");
 Funcionario funcionario1 = new Funcionario("Pedro", "Caixa", "18", "8h");
 Produto produto1 = new Produto("Pão", "Panificadora", 10, 2, 07, 2024, 1.0);
 Produto produto2 = new Produto("Croissant", "Panificadora", 8, 3, 07, 2024, 3.0);
 
-//clienteService.AdicionarCliente(cliente1);
+clienteService.AdicionarCliente(cliente1);
 funcionarioService.AdicionarFuncionario(funcionario1);
 produtoService.AdicionarProduto(produto1);
 produtoService.AdicionarProduto(produto2);
