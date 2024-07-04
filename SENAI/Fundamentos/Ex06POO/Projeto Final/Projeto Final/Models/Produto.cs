@@ -99,6 +99,10 @@ namespace Projeto_Final.Models
         public static void AtualizarQuantidade(Produto prodSelecionado, int qtd)
         {
             prodSelecionado.QuantidadeEstoque -= qtd;
+        } 
+        public static void AtualizarQuantidade(Produto prodSelecionado, int qtd, string soma)
+        {
+            prodSelecionado.QuantidadeCarrinho += qtd;
         }
 
         //public static void PassarProdutos(List<Produto> carrinho, VendasService vendaService)

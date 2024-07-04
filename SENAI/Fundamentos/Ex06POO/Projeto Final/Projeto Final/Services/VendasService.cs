@@ -23,6 +23,11 @@ namespace Projeto_Final.Services
             _produtosVendidos.Add(listaProd);
         }
 
+        public void AdicionarVendasPosicao(List<Produto> listaProd, int idPos)
+        {
+            _produtosVendidos.Insert(idPos, listaProd);
+        }
+
         // Quero a lista que está dentro da lista, identificada pelo Id
         public List<Produto> ProdutosCompradosID(int id)
         {
@@ -32,6 +37,11 @@ namespace Projeto_Final.Services
         public List<List<Produto>> ListarVendas()
         {
             return _produtosVendidos;
+        }
+
+        public void RemoverVendas(List<Produto> listaProd)
+        {
+            _produtosVendidos.Remove(listaProd);
         }
     }
 }

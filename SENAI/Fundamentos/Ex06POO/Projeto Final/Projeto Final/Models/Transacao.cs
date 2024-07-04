@@ -48,9 +48,5 @@ namespace Projeto_Final.Models
             Console.WriteLine(" --- Produtos adquiridos --- ");
         }
 
-        public void AtualizarTransacao()
-        {
-            
-        }
     }
 }

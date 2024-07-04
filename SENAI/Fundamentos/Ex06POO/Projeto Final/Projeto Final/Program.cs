@@ -305,6 +305,8 @@ void AtualizarTransacao()
     Console.WriteLine("2 - Atualizar Funcionário");
     Console.WriteLine("3 - Troca ou devolução de produtos");
 
+    int idTransacao = transacaoAtualizar.Id;
+
     int menuTr;
     menuTr = Int32.Parse(Console.ReadLine());
     switch (menuTr)
@@ -324,16 +326,36 @@ void AtualizarTransacao()
             Console.Write("Informe a opção desejada (Troca ou Devolução): ");
             if (Console.ReadLine().ToLower() == "troca")
             {
-                Console.WriteLine("Lista de Produtos");
+                Console.WriteLine("Lista de Produtos da Transação");
                 DisplayHelper.MostrarProdutos(listaProdutosAtualizar);
 
                 Console.Write("\n Selecione o número do produto que deseja trocar: \n");
-                int idProdTroca = Int32.Parse(Console.ReadLine());
-                listaProdutosAtualizar.RemoveAt(idProdTroca);
-                
-                
+                int prodTrocaPosicao = Int32.Parse(Console.ReadLine());
+                listaProdutosAtualizar.RemoveAt(prodTrocaPosicao);
+
+                Console.WriteLine("Lista de produtos disponíveis");
+                DisplayHelper.MostrarProdutos(produtoService);
+
+                Console.Write("Digite o ID do produto que deseja: ");
+                Produto prodTroca = produtoService.BuscarPorId(Int32.Parse(Console.ReadLine()));
+
+                Console.WriteLine($"Quantidade disponível em estoque : {prodTroca.QuantidadeEstoque} ");
+                Console.Write("\nDigite a quantidade desejada: ");
+                int quantidadeTr = Int32.Parse(Console.ReadLine());
+                prodTroca.QuantidadeCarrinho = quantidadeTr;
+                Produto.AtualizarQuantidade(produtoService.BuscarPorId(prodTroca.Id), quantidadeTr);
+
+                listaProdutosAtualizar.Insert(prodTrocaPosicao, prodTroca);
                 //Criando uma nova lista a partir daquela
                 var listaAtualizada = listaProdutosAtualizar.Select(x => x).ToList();
+
+                // Tem que testar e ver se dá certo
+                transacaoAtualizar.ValorTotal = prodTroca.Preco * quantidadeTr;
+
+                vendasService.AdicionarVendasPosicao(listaAtualizada, transacaoAtualizar.Id);
+                vendasService.RemoverVendas(vendasService.ProdutosCompradosID(transacaoAtualizar.Id+1));
+                Console.WriteLine("Troca Realizada com sucesso!");
+
             }
             break;
         default:
