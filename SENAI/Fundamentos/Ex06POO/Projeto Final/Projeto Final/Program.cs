@@ -331,6 +331,7 @@ void AtualizarTransacao()
 
                 Console.Write("\n Selecione o número do produto que deseja trocar: \n");
                 int prodTrocaPosicao = Int32.Parse(Console.ReadLine());
+                transacaoAtualizar.ValorTotal -= listaProdutosAtualizar[prodTrocaPosicao].Preco * listaProdutosAtualizar[prodTrocaPosicao].QuantidadeCarrinho;
                 listaProdutosAtualizar.RemoveAt(prodTrocaPosicao);
 
                 Console.WriteLine("Lista de produtos disponíveis");
@@ -350,7 +351,7 @@ void AtualizarTransacao()
                 var listaAtualizada = listaProdutosAtualizar.Select(x => x).ToList();
 
                 // Tem que testar e ver se dá certo
-                transacaoAtualizar.ValorTotal = prodTroca.Preco * quantidadeTr;
+                transacaoAtualizar.ValorTotal += prodTroca.Preco * quantidadeTr;
 
                 vendasService.AdicionarVendasPosicao(listaAtualizada, transacaoAtualizar.Id);
                 vendasService.RemoverVendas(vendasService.ProdutosCompradosID(transacaoAtualizar.Id+1));
