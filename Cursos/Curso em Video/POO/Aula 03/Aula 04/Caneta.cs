@@ -20,7 +20,13 @@ namespace Aula_04
             Cor = "Azul";
             Tampar();
         }
-
+        public Caneta(string m, string c, float p)
+        {
+            Modelo = m;
+            Cor = c;
+            Ponta = p;
+            Tampar();
+        }
         public void GetModelo() 
         {
             Console.WriteLine(Modelo); 
@@ -46,7 +52,7 @@ namespace Aula_04
             Console.WriteLine($"Caneta está tampada");
             Tampada = true;
         }
-        public static void MostarPropriedades(Caneta caneta)
+        public static void MostrarPropriedades(Caneta caneta)
         {
             Type type = caneta.GetType();
             PropertyInfo[] propInfo = type.GetProperties();
@@ -57,12 +63,5 @@ namespace Aula_04
 
         }
 
-        public static void MostrarDetalhes(Caneta caneta) 
-        {
-            foreach (var prop in caneta)
-            {
-
-            }
-        }
     }
 }
