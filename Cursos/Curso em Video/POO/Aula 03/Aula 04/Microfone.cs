@@ -13,14 +13,15 @@ namespace Aula_04
         public string Cor { get; set; }
         public bool Ligado { get; set; }    
         public string Sensibilidade { get; set; }
+        private string _padraoPolar = "Não definido";
         public string PadraoPolar
         {
-            get => PadraoPolar;
+            get => _padraoPolar;
             set
             {
                 if (value.ToLower() == "omnidirecional" || value.ToLower() == "Cardioide")
                 {
-                    PadraoPolar = value;
+                    _padraoPolar= value;
                 }
             }
         }
@@ -47,7 +48,13 @@ namespace Aula_04
         }
         public void GravarSom()
         {
+            Console.WriteLine("Gravando Som");
+        }
 
+        public void MostrarDetalhes(Microfone m)
+        {
+            Console.WriteLine($"Padrão Polar: {m.PadraoPolar}");
+            Console.WriteLine($"Modelo: {m.Modelo}");
         }
     }
 }

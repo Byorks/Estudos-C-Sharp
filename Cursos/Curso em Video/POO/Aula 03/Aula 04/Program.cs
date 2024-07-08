@@ -25,5 +25,11 @@ Console.Clear();
 
 #region Exercício A4 Criando Objeto Simples
 Console.WriteLine("Criando Objeto Microfone");
+
+Microfone m1 = new Microfone();
+m1.Modelo = "Blue";
+m1.PadraoPolar = "Omnidirecional";
+
+m1.MostrarDetalhes(m1);
     
 #endregion
