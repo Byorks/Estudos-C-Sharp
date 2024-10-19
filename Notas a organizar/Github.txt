@@ -1,5 +1,0 @@
-Para pegar um arquivo em estado do passado
-
-clonar em outro lugar, 
-pegar o arquivo e depois colocar na pasta original
-push para atualizar
